@@ -123,14 +123,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-slate-700 pt-8 text-center">
-          <p className="text-slate-300 flex items-center justify-center gap-2">
-            Built with <Heart size={16} className="text-red-500" /> by Mercy Adhiambo Ogalo
-          </p>
-          <p className="text-slate-400 text-sm mt-2">
-            {currentYear} All rights reserved.
-          </p>
-        </div>
+        
       </div>
     </footer>
   );
