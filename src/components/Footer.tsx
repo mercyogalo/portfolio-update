@@ -118,17 +118,7 @@ const Footer = () => {
                   +254 743 264 872
                 </a>
               </li>
-              <li className="flex items-center gap-2 text-slate-300">
-                <ExternalLink size={18} />
-                <a
-                  href="https://mercy-ogalo-personal-portfolio.netlify.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white transition-colors"
-                >
-                  Previous Portfolio
-                </a>
-              </li>
+             
             </ul>
           </div>
         </div>
