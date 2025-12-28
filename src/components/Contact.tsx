@@ -58,32 +58,32 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white">
+    <section id="contact" className="py-20 bg-white dark:bg-black">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-burgundy-800 dark:text-white mb-4">
             Get In Touch
           </h2>
-          <div className="h-1 w-20 bg-slate-900 mx-auto mb-6"></div>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+          <div className="h-1 w-20 bg-burgundy-800 dark:bg-white mx-auto mb-6"></div>
+          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             Have a project in mind or just want to chat? Feel free to reach out!
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12">
           <div>
-            <h3 className="text-2xl font-bold text-slate-900 mb-6">Contact Information</h3>
+            <h3 className="text-2xl font-bold text-burgundy-800 dark:text-white mb-6">Contact Information</h3>
 
             <div className="space-y-6 mb-8">
               <div className="flex items-start gap-4">
-                <div className="bg-slate-900 p-3 rounded-lg">
-                  <Mail className="text-white" size={24} />
+                <div className="bg-burgundy-800 dark:bg-white p-3 rounded-lg">
+                  <Mail className="text-white dark:text-black" size={24} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900 mb-1">Email</h4>
+                  <h4 className="font-bold text-burgundy-800 dark:text-white mb-1">Email</h4>
                   <a
                     href="mailto:ogalomercy8@gmail.com"
-                    className="text-slate-600 hover:text-slate-900 transition-colors"
+                    className="text-slate-600 dark:text-slate-400 hover:text-black dark:hover:text-white transition-colors"
                   >
                     ogalomercy8@gmail.com
                   </a>
@@ -91,14 +91,14 @@ const Contact = () => {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="bg-slate-900 p-3 rounded-lg">
-                  <Phone className="text-white" size={24} />
+                <div className="bg-burgundy-800 dark:bg-white p-3 rounded-lg">
+                  <Phone className="text-white dark:text-black" size={24} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900 mb-1">Phone</h4>
+                  <h4 className="font-bold text-burgundy-800 dark:text-white mb-1">Phone</h4>
                   <a
                     href="tel:+254743264872"
-                    className="text-slate-600 hover:text-slate-900 transition-colors"
+                    className="text-slate-600 dark:text-slate-400 hover:text-black dark:hover:text-white transition-colors"
                   >
                     +254 743 264 872
                   </a>
@@ -106,33 +106,33 @@ const Contact = () => {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="bg-slate-900 p-3 rounded-lg">
-                  <MapPin className="text-white" size={24} />
+                <div className="bg-burgundy-800 dark:bg-white p-3 rounded-lg">
+                  <MapPin className="text-white dark:text-black" size={24} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900 mb-1">Location</h4>
-                  <p className="text-slate-600">Kenya</p>
+                  <h4 className="font-bold text-burgundy-800 dark:text-white mb-1">Location</h4>
+                  <p className="text-slate-600 dark:text-slate-400">Kenya</p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-slate-50 p-6 rounded-lg border-2 border-slate-200">
-              <h4 className="font-bold text-slate-900 mb-3">Available For</h4>
-              <ul className="space-y-2 text-slate-700">
+            <div className="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg border-2 border-slate-200 dark:border-slate-700">
+              <h4 className="font-bold text-burgundy-800 dark:text-white mb-3">Available For</h4>
+              <ul className="space-y-2 text-slate-700 dark:text-slate-300">
                 <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-slate-900 rounded-full"></span>
+                  <span className="w-2 h-2 bg-burgundy-800 dark:bg-white rounded-full"></span>
                   Full-time opportunities
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-slate-900 rounded-full"></span>
+                  <span className="w-2 h-2 bg-burgundy-800 dark:bg-white rounded-full"></span>
                   Freelance projects
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-slate-900 rounded-full"></span>
+                  <span className="w-2 h-2 bg-burgundy-800 dark:bg-white rounded-full"></span>
                   Collaboration
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-slate-900 rounded-full"></span>
+                  <span className="w-2 h-2 bg-burgundy-800 dark:bg-white rounded-full"></span>
                   Consulting
                 </li>
               </ul>
@@ -142,7 +142,7 @@ const Contact = () => {
           <div>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-slate-900 font-medium mb-2">
+                <label htmlFor="name" className="block text-burgundy-800 dark:text-white font-medium mb-2">
                   Your Name
                 </label>
                 <input
@@ -152,13 +152,13 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-slate-900 focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 border-2 border-slate-200 dark:border-slate-700 rounded-lg focus:border-burgundy-800 dark:focus:border-white focus:outline-none transition-colors bg-white dark:bg-slate-800 text-black dark:text-white"
                   placeholder="John Doe"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-slate-900 font-medium mb-2">
+                <label htmlFor="email" className="block text-burgundy-800 dark:text-white font-medium mb-2">
                   Your Email
                 </label>
                 <input
@@ -168,13 +168,13 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-slate-900 focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 border-2 border-slate-200 dark:border-slate-700 rounded-lg focus:border-burgundy-800 dark:focus:border-white focus:outline-none transition-colors bg-white dark:bg-slate-800 text-black dark:text-white"
                   placeholder="john@example.com"
                 />
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-slate-900 font-medium mb-2">
+                <label htmlFor="subject" className="block text-burgundy-800 dark:text-white font-medium mb-2">
                   Subject
                 </label>
                 <input
@@ -184,13 +184,13 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-slate-900 focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 border-2 border-slate-200 dark:border-slate-700 rounded-lg focus:border-burgundy-800 dark:focus:border-white focus:outline-none transition-colors bg-white dark:bg-slate-800 text-black dark:text-white"
                   placeholder="Project Inquiry"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-slate-900 font-medium mb-2">
+                <label htmlFor="message" className="block text-burgundy-800 dark:text-white font-medium mb-2">
                   Message
                 </label>
                 <textarea
@@ -200,7 +200,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-slate-900 focus:outline-none transition-colors resize-none"
+                  className="w-full px-4 py-3 border-2 border-slate-200 dark:border-slate-700 rounded-lg focus:border-burgundy-800 dark:focus:border-white focus:outline-none transition-colors resize-none bg-white dark:bg-slate-800 text-black dark:text-white"
                   placeholder="Tell me about your project..."
                 ></textarea>
               </div>
@@ -222,7 +222,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={status === 'submitting'}
-                className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-slate-900 text-white rounded-lg hover:bg-slate-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-medium"
+                className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-burgundy-800 dark:bg-white text-white dark:text-black rounded-lg hover:bg-burgundy-900 dark:hover:bg-slate-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-medium"
               >
                 {status === 'submitting' ? (
                   <>
