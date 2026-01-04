@@ -11,62 +11,33 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-burgundy-800 text-white py-12">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
-          <div>
+    <footer className="bg-primary dark:bg-burgundy-800 text-white py-8 md:py-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 mb-6 md:mb-8">
+          <div className="sm:col-span-2 md:col-span-1">
             <img
               src={theme === 'dark' 
                 ? "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/176/854/original/1.png?1766902274"
                 : "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/176/832/original/5.png?1766861085"
               }
               alt="Logo"
-              className="h-16 w-auto object-contain mb-4 rounded-full"
+              className="h-12 sm:h-16 w-auto object-contain mb-3 md:mb-4 rounded-full"
             />
-            <h3 className="text-2xl font-bold mb-4">Mercy Adhiambo Ogalo</h3>
-            <p className="text-white/90 mb-4">
+            <h3 className="text-xl sm:text-2xl font-bold mb-3 md:mb-4 text-white">Mercy Adhiambo Ogalo</h3>
+            <p className="text-sm sm:text-base text-white/90 mb-4">
               Full Stack Developer passionate about creating impactful web solutions with modern technologies.
             </p>
-            <div className="flex gap-4">
-              <a
-                href="https://github.com/mercyogalo"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/80 hover:text-white transition-colors"
-              >
-                <Github size={24} />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/mercy-ogalo-9a1b69272"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/80 hover:text-white transition-colors"
-              >
-                <Linkedin size={24} />
-              </a>
-              <a
-                href="mailto:ogalomercy8@gmail.com"
-                className="text-white/80 hover:text-white transition-colors"
-              >
-                <Mail size={24} />
-              </a>
-              <a
-                href="tel:+254743264872"
-                className="text-white/80 hover:text-white transition-colors"
-              >
-                <Phone size={24} />
-              </a>
-            </div>
+           
           </div>
 
           
-          <div>
-            <h4 className="text-xl font-bold mb-4">Quick Links</h4>
+          <div className="mt-4 sm:mt-0">
+            <h4 className="text-lg sm:text-xl font-bold mb-3 md:mb-4 text-white">Quick Links</h4>
             <ul className="space-y-2">
               <li>
                 <button
                   onClick={() => scrollToSection('about')}
-                  className="text-white/90 hover:text-white transition-colors"
+                  className="text-sm sm:text-base text-white/90 hover:text-white transition-colors w-full text-left"
                 >
                   About
                 </button>
@@ -74,7 +45,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => scrollToSection('skills')}
-                  className="text-white/90 hover:text-white transition-colors"
+                  className="text-sm sm:text-base text-white/90 hover:text-white transition-colors w-full text-left"
                 >
                   Skills
                 </button>
@@ -82,7 +53,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => scrollToSection('experience')}
-                  className="text-white/90 hover:text-white transition-colors"
+                  className="text-sm sm:text-base text-white/90 hover:text-white transition-colors w-full text-left"
                 >
                   Experience
                 </button>
@@ -90,7 +61,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => scrollToSection('projects')}
-                  className="text-white/90 hover:text-white transition-colors"
+                  className="text-sm sm:text-base text-white/90 hover:text-white transition-colors w-full text-left"
                 >
                   Projects
                 </button>
@@ -98,7 +69,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => scrollToSection('education')}
-                  className="text-white/90 hover:text-white transition-colors"
+                  className="text-sm sm:text-base text-white/90 hover:text-white transition-colors w-full text-left"
                 >
                   Education
                 </button>
@@ -106,7 +77,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => scrollToSection('contact')}
-                  className="text-white/90 hover:text-white transition-colors"
+                  className="text-sm sm:text-base text-white/90 hover:text-white transition-colors w-full text-left"
                 >
                   Contact
                 </button>
@@ -114,22 +85,57 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div>
-            <h4 className="text-xl font-bold mb-4">Get In Touch</h4>
-            <ul className="space-y-2">
-              <li className="flex items-center gap-2 text-white/90">
-                <Mail size={18} />
-                <a href="mailto:ogalomercy8@gmail.com" className="hover:text-white transition-colors">
+          <div className="mt-4 sm:mt-0 sm:col-span-2 md:col-span-1">
+            <h4 className="text-lg sm:text-xl font-bold mb-3 md:mb-4 text-white">Get In Touch</h4>
+            <ul className="space-y-2 mb-4">
+              <li className="flex items-center gap-2 text-sm sm:text-base text-white/90">
+                <Mail size={18} className="flex-shrink-0" />
+                <a href="mailto:ogalomercy8@gmail.com" className="hover:text-white transition-colors break-all">
                   ogalomercy8@gmail.com
                 </a>
               </li>
-              <li className="flex items-center gap-2 text-white/90">
-                <Phone size={18} />
+              <li className="flex items-center gap-2 text-sm sm:text-base text-white/90">
+                <Phone size={18} className="flex-shrink-0" />
                 <a href="tel:+254743264872" className="hover:text-white transition-colors">
                   +254 743 264 872
                 </a>
               </li>
             </ul>
+            <div className="flex gap-3 sm:gap-4 mt-4 sm:mt-5">
+              <a
+                href="https://github.com/mercyogalo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/80 hover:text-white transition-colors"
+                aria-label="GitHub"
+              >
+                <Github size={20} className="sm:w-6 sm:h-6" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/mercy-ogalo-9a1b69272"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/80 hover:text-white transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={20} className="sm:w-6 sm:h-6" />
+              </a>
+              <a
+                href="mailto:ogalomercy8@gmail.com"
+                className="text-white/80 hover:text-white transition-colors"
+                aria-label="Email"
+              >
+                <Mail size={20} className="sm:w-6 sm:h-6" />
+              </a>
+              <a
+                href="tel:+254743264872"
+                className="text-white/80 hover:text-white transition-colors"
+                aria-label="Phone"
+              >
+                <Phone size={20} className="sm:w-6 sm:h-6" />
+              </a>
+              
+            </div>
           </div>
 
 

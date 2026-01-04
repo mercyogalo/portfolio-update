@@ -1,136 +1,162 @@
-import { Briefcase, Calendar } from 'lucide-react';
+import { Briefcase, Calendar, MapPin, Globe } from 'lucide-react';
 
 const Experience = () => {
   const experiences = [
     {
-      title: 'Full Stack Developer / Co-Instructor MERN Stack',
+      role: 'Full Stack Developer / Co-Instructor MERN Stack',
       company: 'Power Learn Project',
-      period: 'June 2025 - Current',
-      description: [
-        'Handle ticketing and email support for students',
-        'Developed soft skills increasing workplace efficiency',
-        'Assist tutors during lessons and help learners with technical questions',
-      ],
+      startDate: 'June 2025',
+      endDate: 'Current',
+      duration: '1 mo',
+      location: 'Kenya',
+      workType: 'Remote',
+      skills: ['React', 'Node.js', 'Express', 'MongoDB', 'MERN Stack', 'Teaching', 'Student Support'],
+      iconColor: 'bg-purple-500',
     },
     {
-      title: 'Full Stack Developer',
-      company: 'Femicare Chat Agent (PLP Final Project)',
-      period: 'June 2025',
-      description: [
-        'Built a full-stack AI chatbot for female vaginal healthcare questions',
-        'Implemented CRUD operations using MERN stack',
-        'Focused on increasing knowledge accessibility in female healthcare',
-        'Deployed application on Render',
-      ],
+      role: 'Full Stack Developer',
+      company: 'Femicare Chat Agent',
+      startDate: 'June 2025',
+      endDate: 'June 2025',
+      duration: '1 mo',
+      location: 'Remote',
+      workType: 'Remote',
+      skills: ['MongoDB', 'Express.js', 'React', 'Node.js', 'AI Integration', 'CRUD Operations'],
       link: 'https://ai-project-1-9gvt.onrender.com/',
+      iconColor: 'bg-teal-500',
     },
     {
-      title: 'Web Developer Intern',
-      company: 'M-treat Organization (Health Organization)',
-      period: 'March 2025 - May 2025',
-      description: [
-        'Developed contact form in Django with email notification functionality',
-        'Created API handling functions in React for contact form integration',
-        'Implemented newsletter backend with subscription notifications',
-        'Applied comprehensive error handling across features',
-      ],
+      role: 'Web Developer Intern',
+      company: 'M-treat Organization',
+      startDate: 'March 2025',
+      endDate: 'May 2025',
+      duration: '3 mos',
+      location: 'Kenya',
+      workType: 'Remote',
+      skills: ['Django', 'React', 'REST API', 'Email Integration', 'Newsletter'],
+      iconColor: 'bg-green-500',
     },
     {
-      title: 'Web Developer & Designer',
-      company: 'Baobab Restaurant Website',
-      period: 'April 2025 - May 2025',
-      description: [
-        'Designed and developed fully responsive restaurant website showcasing Kenyan cuisine',
-        'Integrated Django backend for contact and reservation forms',
-        'Applied UI/UX principles reflecting brand cultural identity',
-        'Improved site accessibility for diverse audiences',
-      ],
+      role: 'Web Developer & Designer',
+      company: 'Baobab Restaurant',
+      startDate: 'April 2025',
+      endDate: 'May 2025',
+      duration: '2 mos',
+      location: 'Kenya',
+      workType: 'Remote',
+      skills: ['Django', 'HTML5', 'CSS3', 'JavaScript', 'Bootstrap', 'UI/UX Design'],
+      iconColor: 'bg-orange-500',
     },
     {
-      title: 'Web Developer & Designer',
+      role: 'Web Developer & Designer',
       company: 'AgriGrow Farms',
-      period: 'December 2024',
-      description: [
-        'Built inventory management system for agriculture-based businesses',
-        'Implemented robust CRUD functionality with Django',
-        'Developed role-based authentication and dashboards',
-        'Increased work efficiency and tracking by 5%',
-      ],
+      startDate: 'December 2024',
+      endDate: 'December 2024',
+      duration: '1 mo',
+      location: 'Kenya',
+      workType: 'Remote',
+      skills: ['Django', 'Python', 'MySQL', 'Bootstrap', 'JavaScript', 'Inventory Management'],
+      iconColor: 'bg-cyan-500',
     },
     {
-      title: 'Web Developer & Designer',
-      company: 'Jay Foundation (Charity Organization)',
-      period: 'January 2025 - February 2025',
-      description: [
-        'Developed dynamic website using Django backend',
-        'Implemented automated email responses for contact form submissions',
-        'Integrated M-Pesa payment functionality for secure donations',
-        'Designed responsive interface ensuring smooth UX across devices',
-      ],
+      role: 'Web Developer & Designer',
+      company: 'Jay Foundation',
+      startDate: 'January 2025',
+      endDate: 'February 2025',
+      duration: '2 mos',
+      location: 'Kenya',
+      workType: 'Remote',
+      skills: ['Django', 'JavaScript', 'M-Pesa API', 'Bootstrap', 'Payment Integration'],
+      iconColor: 'bg-pink-500',
     },
   ];
 
+  // Calculate duration display
+  const getDurationDisplay = (startDate: string, endDate: string, duration: string) => {
+    if (endDate === 'Current') {
+      return `${startDate} - Present - ${duration}`;
+    }
+    return `${startDate} - ${endDate} - ${duration}`;
+  };
+
+  // Show first 3 skills, then "+X more"
+  const displaySkills = (skills: string[]) => {
+    const visibleSkills = skills.slice(0, 3);
+    const remainingCount = skills.length - 3;
+    return { visibleSkills, remainingCount };
+  };
+
   return (
-    <section id="experience" className="py-20 bg-white dark:bg-black">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-burgundy-800 dark:text-white mb-4">
-            Work Experience
+    <section id="experience" className="py-20 bg-white dark:bg-slate-800">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-burgundy-800 dark:text-burgundy-400 mb-4 text-center">
+            Professional Experience
           </h2>
-          <div className="h-1 w-20 bg-burgundy-800 dark:bg-white mx-auto"></div>
         </div>
 
-        <div className="relative">
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-slate-300 dark:bg-slate-700 hidden md:block"></div>
+        <div className="grid md:grid-cols-2 gap-6">
+          {experiences.map((exp, index) => {
+            const { visibleSkills, remainingCount } = displaySkills(exp.skills);
+            return (
+              <div
+                key={index}
+                className="bg-primary-foreground  dark:bg-slate-900 rounded-xl p-6 hover:shadow-xl transition-shadow"
+              >
+                <div className="flex items-start gap-4">
+                  {/* Logo/Icon */}
+                  <div className={`${exp.iconColor} w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0`}>
+                    <Briefcase className="text-white" size={32} />
+                  </div>
 
-          <div className="space-y-12">
-            {experiences.map((exp, index) => (
-              <div key={index} className="relative">
-                <div className="md:ml-20">
-                  <div className="absolute left-8 w-4 h-4 bg-burgundy-800 dark:bg-white rounded-full -translate-x-1/2 hidden md:block"></div>
+                  {/* Content */}
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1">
+                      {exp.role}
+                    </h3>
+                    <p className="text-burgundy-800 dark:text-burgundy-400 font-semibold mb-3">
+                      {exp.company}
+                    </p>
+                    
+                    {/* Duration */}
+                    <div className="flex items-center gap-2 text-slate-600 dark:text-slate-300 text-sm mb-2">
+                      <Calendar size={16} />
+                      <span>{getDurationDisplay(exp.startDate, exp.endDate, exp.duration)}</span>
+                    </div>
 
-                  <div className="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg border-2 border-slate-200 dark:border-slate-700 hover:border-burgundy-800 dark:hover:border-slate-500 transition-colors">
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                      <div>
-                        <h3 className="text-xl font-bold text-burgundy-800 dark:text-white mb-1">
-                          {exp.title}
-                        </h3>
-                        <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium">
-                          <Briefcase size={18} />
-                          {exp.company}
-                        </div>
+                    {/* Location and Work Type */}
+                    <div className="flex items-center gap-4 text-slate-600 dark:text-slate-400 text-sm mb-4">
+                      <div className="flex items-center gap-1">
+                        <MapPin size={14} />
+                        <span>{exp.location}</span>
                       </div>
-                      <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400 mt-2 md:mt-0">
-                        <Calendar size={18} />
-                        {exp.period}
+                      <div className="flex items-center gap-1">
+                        <Globe size={14} />
+                        <span>{exp.workType}</span>
                       </div>
                     </div>
 
-                    <ul className="space-y-2 mb-4">
-                      {exp.description.map((item, idx) => (
-                        <li key={idx} className="text-slate-700 dark:text-slate-300 flex items-start gap-2">
-                          <span className="text-black dark:text-white mt-1">•</span>
-                          <span>{item}</span>
-                        </li>
+                    {/* Skills Tags */}
+                    <div className="flex flex-wrap gap-2">
+                      {visibleSkills.map((skill, idx) => (
+                        <span
+                          key={idx}
+                          className="px-3 py-1 bg-burgundy-100 dark:bg-burgundy-900 text-burgundy-800 dark:text-burgundy-300 text-xs font-medium rounded"
+                        >
+                          {skill}
+                        </span>
                       ))}
-                    </ul>
-
-                    {exp.link && (
-                      <a
-                        href={exp.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-black dark:text-white font-medium hover:underline"
-                      >
-                        View Project
-                        <span>→</span>
-                      </a>
-                    )}
+                      {remainingCount > 0 && (
+                        <span className="px-3 py-1 bg-burgundy-100 dark:bg-burgundy-900 text-burgundy-800 dark:text-burgundy-300 text-xs font-medium rounded">
+                          +{remainingCount} more
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </div>
     </section>

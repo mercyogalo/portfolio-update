@@ -7,16 +7,16 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center bg-white dark:bg-black relative pt-16 dark:shadow-[0_0_60px_rgba(128,0,32,0.4)]">
+    <section className="min-h-screen flex items-center bg-accent dark:bg-black relative pt-16 dark:shadow-[0_0_60px_rgba(128,0,32,0.4)]">
       <div className="max-w-7xl mx-auto px-6 py-20 w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Text Content - 1/2 width */}
           <div>
             <div className="mb-8">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-burgundy-800 dark:text-white mb-4">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-burgundy-800 dark:text-burgundy-400 mb-4">
                 Mercy Adhiambo Ogalo
               </h1>
-              <div className="h-1 w-32 bg-burgundy-800 dark:bg-white mb-6"></div>
+              <div className="h-1 w-32 bg-burgundy-800 dark:bg-burgundy-400 mb-6"></div>
               <p className="text-xl md:text-2xl lg:text-3xl text-slate-700 dark:text-slate-300 font-light">
                 Full Stack Developer & Web Designer
               </p>

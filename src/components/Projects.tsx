@@ -4,91 +4,125 @@ const Projects = () => {
   const projects = [
     {
       title: 'Femicare Chat Agent',
+      category: 'AI Healthcare Chatbot',
       description: 'Full-stack AI chatbot addressing female vaginal healthcare questions. Built with MERN stack featuring CRUD operations, authentication, and AI integration for accessible healthcare information.',
-      tech: ['MongoDB', 'Express.js', 'React', 'Node.js', 'AI Integration'],
+      tech: 'MongoDB | Express.js | React | Node.js | AI Integration',
       link: 'https://ai-project-1-9gvt.onrender.com/',
       image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop',
+      color: 'bg-green-200',
     },
     {
-      title: 'AgriGrow Farms Inventory System',
+      title: 'AgriGrow Farms',
+      category: 'Inventory Management App',
       description: 'Comprehensive inventory management system for agriculture businesses. Features role-based authentication, dashboard analytics, and efficient tracking of stock and operations.',
-      tech: ['Django', 'Python', 'MySQL', 'Bootstrap', 'JavaScript'],
+      tech: 'Django | Python | MySQL | Bootstrap | JavaScript',
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop',
+      color: 'bg-teal-200',
     },
     {
-      title: 'Baobab Restaurant Website',
+      title: 'Baobab Website',
+      category: 'Restaurant Website',
       description: 'Fully responsive restaurant website showcasing Kenyan cuisine. Features contact and reservation forms with Django backend integration and mobile-optimized design.',
-      tech: ['Django', 'HTML5', 'CSS3', 'JavaScript', 'Bootstrap'],
+      tech: 'Django | HTML5 | CSS3 | JavaScript | Bootstrap',
       image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=400&fit=crop',
+      color: 'bg-purple-200',
     },
     {
       title: 'M-treat Health Organization Site',
+      category: 'Health Organization App',
       description: 'Dynamic health organization website with automated email system for contact forms and newsletter functionality with subscription management.',
-      tech: ['Django', 'React', 'REST API', 'Email Integration'],
+      tech: 'Django | React | REST API | Email Integration',
       image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=400&fit=crop',
+      color: 'bg-green-200',
     },
     {
-      title: 'Jay Foundation Charity Site',
+      title: 'Jay Foundation',
+      category: 'Charity Organization App',
       description: 'Charity organization website with M-Pesa payment integration for secure donations, automated email responses, and responsive design across all devices.',
-      tech: ['Django', 'JavaScript', 'M-Pesa API', 'Bootstrap'],
+      tech: 'Django | JavaScript | M-Pesa API | Bootstrap',
       image: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&h=400&fit=crop',
+      color: 'bg-teal-200',
     },
-    {
-      title: 'Personal Portfolio',
-      description: 'Modern portfolio website showcasing my work, skills, and experience with smooth animations and responsive design.',
-      tech: ['React', 'Tailwind CSS', 'TypeScript'],
-      link: 'https://mercy-ogalo-personal-portfolio.netlify.app/',
-      image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=400&fit=crop',
-    },
+    
   ];
 
   return (
     <section id="projects" className="py-20 bg-white dark:bg-slate-800">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-burgundy-800 dark:text-white mb-4">
-            My Projects
+      <div className="max-w-7xl mx-auto px-6">
+      <div className="mt-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-burgundy-800 dark:text-burgundy-400 mb-4">
+            Projects
           </h2>
-          <div className="h-1 w-20 bg-burgundy-800 dark:bg-white mx-auto"></div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
-            <a
-              key={index}
-              href={project.link || '#'}
-              target={project.link ? '_blank' : undefined}
-              rel={project.link ? 'noopener noreferrer' : undefined}
-              className="bg-white dark:bg-black rounded-md shadow-md overflow-hidden border border-slate-200 dark:border-slate-700 hover:border-burgundy-800 dark:hover:border-slate-500 transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col cursor-pointer"
-            >
-              {/* Image section - covering half the card */}
-              <div className="h-48 overflow-hidden bg-slate-200 dark:bg-slate-700">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              {/* Content section */}
-              <div className="p-5 flex-1 flex flex-col">
-                <h3 className="text-xl font-bold text-burgundy-800 dark:text-white mb-2">
-                  {project.title}
-                </h3>
-                <p className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed mb-4 flex-1">
-                  {project.description}
-                </p>
-                
-                {project.link && (
-                  <div className="flex items-center gap-2 text-black dark:text-white font-medium text-sm mt-auto">
-                    <ExternalLink size={16} />
-                    <span>Visit Website</span>
+        <div className="space-y-16">
+          {projects.map((project, index) => {
+            const isEven = index % 2 === 0;
+            return (
+              <div key={index} className="relative">
+                <div className="flex flex-col lg:flex-row gap-0 relative">
+                  {/* Colored block with phone and text */}
+                  <div className={` ${isEven ? 'lg:w-[60%]' : 'lg:w-[60%] lg:ml-auto'} bg-primary p-8 lg:p-12 flex flex-col lg:flex-row items-center gap-8 relative z-10`}>
+                    {/* Phone Mockup */}
+                    <div className="flex-shrink-0">
+                      <div className="relative w-48 h-[400px] bg-white rounded-[2rem] p-2 shadow-xl">
+                        {/* Phone notch */}
+                        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 h-5 bg-white rounded-b-xl z-10"></div>
+                        {/* Screen */}
+                        <div className="w-full h-full bg-white rounded-[1.5rem] overflow-hidden">
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Text on right side of colored block */}
+                    <div className="flex-1 text-accent">
+                      <p className="text-sm uppercase tracking-wide mb-2 font-medium">
+                        {project.category}
+                      </p>
+                      <h3 className="text-3xl lg:text-4xl font-bold">
+                        {project.title}
+                      </h3>
+                    </div>
                   </div>
-                )}
+
+                  {/* Description panel - at bottom on small/medium, overlapping on large */}
+                  <div className={`mt-8 lg:mt-0 ${isEven ? 'lg:absolute lg:right-0 lg:w-[47%]' : 'lg:absolute lg:left-0 lg:w-[47%]'} lg:top-1/2 lg:-translate-y-1/2 p-8 lg:p-12 flex flex-col justify-center z-20`}>
+                    <p className={`text-primary dark:text-slate-400 text-sm uppercase tracking-wide mb-2 ${isEven ? 'lg:text-right text-left' : 'text-left'}`}>
+                      Featured Project
+                    </p>
+                    <h3 className={`text-3xl lg:text-4xl font-bold text-primary dark:text-cyan-400 mb-6 ${isEven ? 'lg:text-right text-left' : 'text-left'}`}>
+                      {project.title}
+                    </h3>
+                    <p className="text-foreground dark:text-slate-300 mb-6 py-8 px-6 rounded leading-relaxed bg-accent dark:bg-burgundy-800/80">
+                      {project.description}
+                    </p>
+                    <p className={`text-primary dark:text-cyan-300 mb-8 font-medium ${isEven ? 'lg:text-right text-left' : 'text-left'}`}>
+                      {project.tech}
+                    </p>
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`inline-flex items-center gap-2 px-6 py-3 border-2 border-slate-800 dark:border-white text-slate-800 dark:text-white hover:bg-slate-800 dark:hover:bg-white hover:text-white dark:hover:text-slate-800 transition-colors font-medium w-fit ${isEven ? 'lg:ml-auto mr-auto lg:mr-0' : 'mr-auto'}`}
+                      >
+                        VIEW DETAILS
+                        <ExternalLink size={18} />
+                      </a>
+                    )}
+                  </div>
+                </div>
               </div>
-            </a>
-          ))}
+            );
+          })}
         </div>
+        
+        
       </div>
     </section>
   );

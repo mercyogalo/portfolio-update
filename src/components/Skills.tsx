@@ -3,22 +3,20 @@ import { Code2, Database, Palette, Server, Wrench, MessageSquare } from 'lucide-
 const Skills = () => {
   const skillCategories = [
     {
-      title: 'Frontend Development',
+      title: 'Frontend',
       icon: Code2,
-      color: 'border-blue-500',
       skills: [
         { name: 'React.js', level: 90 },
         { name: 'JavaScript', level: 88 },
         { name: 'HTML5 & CSS3', level: 95 },
         { name: 'Tailwind CSS', level: 92 },
         { name: 'Bootstrap', level: 85 },
-        { name: 'Material-UI', level: 80 },
+        { name: 'Typescript', level: 80 },
       ],
     },
     {
-      title: 'Backend Development',
+      title: 'Backend',
       icon: Server,
-      color: 'border-emerald-500',
       skills: [
         { name: 'Node.js', level: 85 },
         { name: 'Express.js', level: 82 },
@@ -28,9 +26,8 @@ const Skills = () => {
       ],
     },
     {
-      title: 'Database & Tools',
+      title: 'Database',
       icon: Database,
-      color: 'border-amber-500',
       skills: [
         { name: 'MongoDB', level: 85 },
         { name: 'MySQL', level: 80 },
@@ -39,9 +36,8 @@ const Skills = () => {
       ],
     },
     {
-      title: 'Design & Other',
+      title: 'Design',
       icon: Palette,
-      color: 'border-rose-500',
       skills: [
         { name: 'Figma', level: 85 },
         { name: 'UI/UX Design', level: 82 },
@@ -51,69 +47,58 @@ const Skills = () => {
     },
   ];
 
-  const softSkills = [
-    { icon: MessageSquare, title: 'Communication', description: 'Clear and effective communication' },
-    { icon: Wrench, title: 'Problem Solving', description: 'Analytical thinking and solutions' },
-    { icon: Code2, title: 'Time Management', description: 'Efficient task prioritization' },
-    { icon: Server, title: 'Adaptability', description: 'Quick to learn new technologies' },
-  ];
+ 
 
   return (
     <section id="skills" className="py-20 bg-white dark:bg-slate-800">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-burgundy-800 dark:text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-burgundy-800 dark:text-burgundy-400 mb-4">
             Skills & Expertise
           </h2>
-          <div className="h-1 w-20 bg-burgundy-800 dark:bg-white mx-auto"></div>
+          <div className="h-1 w-20 bg-burgundy-800 dark:bg-burgundy-400 mx-auto"></div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {skillCategories.map((category, index) => (
             <div
               key={index}
-              className={`bg-white dark:bg-black p-8 rounded-xl border-l-4 ${category.color} shadow-md hover:shadow-xl transition-shadow`}
+              className="group relative h-64 rounded-xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105 shadow-lg"
             >
-              <div className="flex items-center gap-3 mb-6">
-                <category.icon className="text-burgundy-800 dark:text-white" size={28} />
-                <h3 className="text-2xl font-bold text-burgundy-800 dark:text-white">{category.title}</h3>
+              {/* Skills List - Always visible in background */}
+              <div className="absolute inset-0 p-6 flex flex-col justify-center bg-white dark:bg-black">
+                <div className="flex items-center gap-3 mb-4">
+                  <category.icon className="text-burgundy-800 dark:text-white" size={24} />
+                  <h3 className="text-xl font-bold text-burgundy-800 dark:text-white">{category.title}</h3>
+                </div>
+                <div className="space-y-3 overflow-y-auto">
+                  {category.skills.map((skill, idx) => (
+                    <div key={idx}>
+                      <div className="flex justify-between mb-1">
+                        <span className="text-background-10 dark:text-slate-300 font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">{skill.name}</span>
+                        <span className="text-primary dark:text-slate-400 text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">{skill.level}%</span>
+                      </div>
+                      <div className="h-1.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div
+                          className="h-full bg-burgundy-800 dark:bg-white rounded-full transition-all duration-1000 ease-out"
+                          style={{ width: `${skill.level}%` }}
+                        ></div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              <div className="space-y-4">
-                {category.skills.map((skill, idx) => (
-                  <div key={idx}>
-                    <div className="flex justify-between mb-2">
-                      <span className="text-slate-700 dark:text-slate-300 font-medium">{skill.name}</span>
-                      <span className="text-slate-600 dark:text-slate-400 text-sm">{skill.level}%</span>
-                    </div>
-                    <div className="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
-                      <div
-                        className="h-full bg-burgundy-800 dark:bg-white rounded-full transition-all duration-1000 ease-out"
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
-                    </div>
-                  </div>
-                ))}
+              {/* Burgundy overlay with category name - Default View */}
+              <div className="absolute inset-0 bg-burgundy-800/75 dark:bg-burgundy-800/70 flex flex-col items-center justify-center transition-all duration-300 group-hover:bg-burgundy-800/20 group-hover:dark:bg-burgundy-800/30 z-10">
+                <category.icon className="text-white mb-4 group-hover:opacity-0 transition-opacity duration-300" size={48} />
+                <h3 className="text-3xl font-bold text-white group-hover:opacity-0 transition-opacity duration-300">{category.title}</h3>
               </div>
             </div>
           ))}
         </div>
 
-        <div>
-          <h3 className="text-3xl font-bold text-burgundy-800 dark:text-white mb-8 text-center">Soft Skills</h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {softSkills.map((skill, index) => (
-              <div
-                key={index}
-                className="bg-white dark:bg-black p-6 rounded-lg border-2 border-slate-200 dark:border-slate-700 hover:border-burgundy-800 dark:hover:border-slate-500 transition-all hover:transform hover:-translate-y-1"
-              >
-                <skill.icon className="text-burgundy-800 dark:text-white mb-4" size={32} />
-                <h4 className="text-lg font-bold text-burgundy-800 dark:text-white mb-2">{skill.title}</h4>
-                <p className="text-slate-600 dark:text-slate-400 text-sm">{skill.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        
       </div>
     </section>
   );

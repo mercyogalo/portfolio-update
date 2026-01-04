@@ -61,10 +61,10 @@ const Contact = () => {
     <section id="contact" className="py-20 bg-white dark:bg-black">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-burgundy-800 dark:text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-burgundy-800 dark:text-burgundy-400 mb-4">
             Get In Touch
           </h2>
-          <div className="h-1 w-20 bg-burgundy-800 dark:bg-white mx-auto mb-6"></div>
+          <div className="h-1 w-20 bg-burgundy-800 dark:bg-burgundy-400 mx-auto mb-6"></div>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             Have a project in mind or just want to chat? Feel free to reach out!
           </p>
