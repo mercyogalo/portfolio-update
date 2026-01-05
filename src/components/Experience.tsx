@@ -22,7 +22,6 @@ const Experience = () => {
       location: 'Remote',
       workType: 'Remote',
       skills: ['MongoDB', 'Express.js', 'React', 'Node.js', 'AI Integration', 'CRUD Operations'],
-      link: 'https://ai-project-1-9gvt.onrender.com/',
       iconColor: 'bg-teal-500',
     },
     {
@@ -56,7 +55,7 @@ const Experience = () => {
       location: 'Kenya',
       workType: 'Remote',
       skills: ['Django', 'Python', 'MySQL', 'Bootstrap', 'JavaScript', 'Inventory Management'],
-      iconColor: 'bg-cyan-500',
+      iconColor: 'bg-purple-500',
     },
     {
       role: 'Web Developer & Designer',
@@ -87,7 +86,7 @@ const Experience = () => {
   };
 
   return (
-    <section id="experience" className="py-20 bg-white dark:bg-slate-800">
+    <section id="experience" className="py-20 bg-white dark:bg-black">
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-burgundy-800 dark:text-burgundy-400 mb-4 text-center">
@@ -101,7 +100,7 @@ const Experience = () => {
             return (
               <div
                 key={index}
-                className="bg-primary-foreground  dark:bg-slate-900 rounded-xl p-6 hover:shadow-xl transition-shadow"
+                className="bg-primary-foreground  dark:bg-black rounded-xl p-6 hover:shadow-xl transition-shadow border border-slate-200 dark:border-slate-800"
               >
                 <div className="flex items-start gap-4">
                   {/* Logo/Icon */}

@@ -49,11 +49,15 @@ const Hero = () => {
           {/* Image - 1/2 width */}
           <div className="flex justify-center md:justify-end">
             <div className="relative w-full max-w-md">
-              <div className="aspect-square rounded-full overflow-hidden bg-slate-200 dark:bg-slate-700 shadow-xl">
+              {/* Glow effect - red-orange shadow behind image - only in dark mode */}
+              <div className="hidden dark:block absolute inset-0 rounded-full bg-gradient-radial from-red-600/60 via-orange-500/50 to-transparent blur-3xl -z-0 scale-110"></div>
+              <div className="hidden dark:block absolute inset-0 rounded-full shadow-[0_0_80px_rgba(220,38,38,0.6),0_0_120px_rgba(249,115,22,0.4),0_0_160px_rgba(239,68,68,0.3)] -z-0"></div>
+              
+              <div className="aspect-square rounded-full overflow-hidden bg-slate-200 dark:bg-slate-700 shadow-xl relative z-10">
                 <img
                   src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/176/855/original/WhatsApp_Image_2025-12-28_at_10.34.40_AM.jpeg?1766907331"
                   alt="Mercy Adhiambo Ogalo"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover relative z-10"
                 />
               </div>
             </div>

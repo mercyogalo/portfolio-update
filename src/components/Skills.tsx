@@ -50,7 +50,7 @@ const Skills = () => {
  
 
   return (
-    <section id="skills" className="py-20 bg-white dark:bg-slate-800">
+    <section id="skills" className="py-20 bg-white dark:bg-black">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-burgundy-800 dark:text-burgundy-400 mb-4">
@@ -63,36 +63,30 @@ const Skills = () => {
           {skillCategories.map((category, index) => (
             <div
               key={index}
-              className="group relative h-64 rounded-xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105 shadow-lg"
+              className="group relative h-auto min-h-64 rounded-xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105 shadow-lg bg-white dark:bg-black p-6 border border-slate-200 dark:border-slate-800"
             >
-              {/* Skills List - Always visible in background */}
-              <div className="absolute inset-0 p-6 flex flex-col justify-center bg-white dark:bg-black">
+              {/* Skills List - Always visible */}
+              <div className="flex flex-col justify-start">
                 <div className="flex items-center gap-3 mb-4">
-                  <category.icon className="text-burgundy-800 dark:text-white" size={24} />
-                  <h3 className="text-xl font-bold text-burgundy-800 dark:text-white">{category.title}</h3>
+                  <category.icon className="text-burgundy-800 dark:text-burgundy-400" size={24} />
+                  <h3 className="text-xl font-bold text-burgundy-800 dark:text-burgundy-400">{category.title}</h3>
                 </div>
-                <div className="space-y-3 overflow-y-auto">
+                <div className="space-y-3">
                   {category.skills.map((skill, idx) => (
                     <div key={idx}>
                       <div className="flex justify-between mb-1">
-                        <span className="text-background-10 dark:text-slate-300 font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">{skill.name}</span>
-                        <span className="text-primary dark:text-slate-400 text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">{skill.level}%</span>
+                        <span className="text-slate-700 dark:text-slate-300 font-medium text-sm">{skill.name}</span>
+                        <span className="text-burgundy-800 dark:text-burgundy-400 text-xs font-semibold">{skill.level}%</span>
                       </div>
-                      <div className="h-1.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="h-1.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
                         <div
-                          className="h-full bg-burgundy-800 dark:bg-white rounded-full transition-all duration-1000 ease-out"
+                          className="h-full bg-burgundy-800 dark:bg-burgundy-400 rounded-full transition-all duration-1000 ease-out"
                           style={{ width: `${skill.level}%` }}
                         ></div>
                       </div>
                     </div>
                   ))}
                 </div>
-              </div>
-
-              {/* Burgundy overlay with category name - Default View */}
-              <div className="absolute inset-0 bg-burgundy-800/75 dark:bg-burgundy-800/70 flex flex-col items-center justify-center transition-all duration-300 group-hover:bg-burgundy-800/20 group-hover:dark:bg-burgundy-800/30 z-10">
-                <category.icon className="text-white mb-4 group-hover:opacity-0 transition-opacity duration-300" size={48} />
-                <h3 className="text-3xl font-bold text-white group-hover:opacity-0 transition-opacity duration-300">{category.title}</h3>
               </div>
             </div>
           ))}

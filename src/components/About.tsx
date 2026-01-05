@@ -5,10 +5,10 @@ const About = () => {
     <section id="about" className="py-20 bg-white dark:bg-black">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary dark:text-burgundy-400 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-burgundy-800 dark:text-burgundy-400 mb-4">
             About Me
           </h2>
-          <div className="h-1 w-20 bg-primary dark:bg-burgundy-400 mx-auto"></div>
+          <div className="h-1 w-20 bg-burgundy-800 dark:bg-burgundy-400 mx-auto"></div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -31,7 +31,7 @@ const About = () => {
           </div>
 
           <div className="grid grid-cols-2 gap-6">
-            <div className="bg-accent dark:bg-slate-800 p-6 rounded-lg border-2 border-slate-200 dark:border-slate-700 hover:border-burgundy-800 dark:hover:border-burgundy-400 transition-colors">
+            <div className="bg-accent dark:bg-black p-6 rounded-lg border-2 border-slate-200 dark:border-slate-800 hover:border-burgundy-800 dark:hover:border-burgundy-400 transition-colors">
               <Code2 className="text-burgundy-800 dark:text-burgundy-400 mb-4" size={32} />
               <h3 className="text-xl font-bold text-burgundy-800 dark:text-burgundy-400 mb-2">Clean Code</h3>
               <p className="text-slate-600 dark:text-slate-400">
@@ -39,7 +39,7 @@ const About = () => {
               </p>
             </div>
 
-            <div className="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg border-2 border-slate-200 dark:border-slate-700 hover:border-burgundy-800 dark:hover:border-burgundy-400 transition-colors">
+            <div className="bg-slate-50 dark:bg-black p-6 rounded-lg border-2 border-slate-200 dark:border-slate-800 hover:border-burgundy-800 dark:hover:border-burgundy-400 transition-colors">
               <Lightbulb className="text-burgundy-800 dark:text-burgundy-400 mb-4" size={32} />
               <h3 className="text-xl font-bold text-burgundy-800 dark:text-burgundy-400 mb-2">Creative</h3>
               <p className="text-slate-600 dark:text-slate-400">
@@ -47,7 +47,7 @@ const About = () => {
               </p>
             </div>
 
-            <div className="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg border-2 border-slate-200 dark:border-slate-700 hover:border-burgundy-800 dark:hover:border-burgundy-400 transition-colors">
+            <div className="bg-slate-50 dark:bg-black p-6 rounded-lg border-2 border-slate-200 dark:border-slate-800 hover:border-burgundy-800 dark:hover:border-burgundy-400 transition-colors">
               <Users className="text-burgundy-800 dark:text-burgundy-400 mb-4" size={32} />
               <h3 className="text-xl font-bold text-burgundy-800 dark:text-burgundy-400 mb-2">Team Player</h3>
               <p className="text-slate-600 dark:text-slate-400">
@@ -55,7 +55,7 @@ const About = () => {
               </p>
             </div>
 
-            <div className="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg border-2 border-slate-200 dark:border-slate-700 hover:border-burgundy-800 dark:hover:border-burgundy-400 transition-colors">
+            <div className="bg-slate-50 dark:bg-black p-6 rounded-lg border-2 border-slate-200 dark:border-slate-800 hover:border-burgundy-800 dark:hover:border-burgundy-400 transition-colors">
               <Zap className="text-burgundy-800 dark:text-burgundy-400 mb-4" size={32} />
               <h3 className="text-xl font-bold text-burgundy-800 dark:text-burgundy-400 mb-2">Fast Learner</h3>
               <p className="text-slate-600 dark:text-slate-400">

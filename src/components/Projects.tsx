@@ -7,7 +7,6 @@ const Projects = () => {
       category: 'AI Healthcare Chatbot',
       description: 'Full-stack AI chatbot addressing female vaginal healthcare questions. Built with MERN stack featuring CRUD operations, authentication, and AI integration for accessible healthcare information.',
       tech: 'MongoDB | Express.js | React | Node.js | AI Integration',
-      link: 'https://ai-project-1-9gvt.onrender.com/',
       image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop',
       color: 'bg-green-200',
     },
@@ -16,7 +15,7 @@ const Projects = () => {
       category: 'Inventory Management App',
       description: 'Comprehensive inventory management system for agriculture businesses. Features role-based authentication, dashboard analytics, and efficient tracking of stock and operations.',
       tech: 'Django | Python | MySQL | Bootstrap | JavaScript',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop',
+      image: 'https://s3.amazonaws.com/shecodesio-production/uploads/files/000/168/307/original/screencapture-localhost-8000-acc-home-2025-06-17-12_50_49.png?1750159724',
       color: 'bg-teal-200',
     },
     {
@@ -24,7 +23,7 @@ const Projects = () => {
       category: 'Restaurant Website',
       description: 'Fully responsive restaurant website showcasing Kenyan cuisine. Features contact and reservation forms with Django backend integration and mobile-optimized design.',
       tech: 'Django | HTML5 | CSS3 | JavaScript | Bootstrap',
-      image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=400&fit=crop',
+      image: 'https://s3.amazonaws.com/shecodesio-production/uploads/files/000/168/308/original/screencapture-localhost-8000-2025-06-17-12_29_16.png?1750159747',
       color: 'bg-purple-200',
     },
     {
@@ -32,7 +31,7 @@ const Projects = () => {
       category: 'Health Organization App',
       description: 'Dynamic health organization website with automated email system for contact forms and newsletter functionality with subscription management.',
       tech: 'Django | React | REST API | Email Integration',
-      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=400&fit=crop',
+      image: 'https://s3.amazonaws.com/shecodesio-production/uploads/files/000/177/169/original/screencapture-linkedin-in-pascal20239-2026-01-05-18_04_36.png?1767626972',
       color: 'bg-green-200',
     },
     {
@@ -40,14 +39,14 @@ const Projects = () => {
       category: 'Charity Organization App',
       description: 'Charity organization website with M-Pesa payment integration for secure donations, automated email responses, and responsive design across all devices.',
       tech: 'Django | JavaScript | M-Pesa API | Bootstrap',
-      image: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&h=400&fit=crop',
+      image: 'https://s3.amazonaws.com/shecodesio-production/uploads/files/000/168/309/original/screencapture-localhost-8000-2025-06-17-12_25_42.png?1750159770',
       color: 'bg-teal-200',
     },
     
   ];
 
   return (
-    <section id="projects" className="py-20 bg-white dark:bg-slate-800">
+    <section id="projects" className="py-20 bg-white dark:bg-black">
       <div className="max-w-7xl mx-auto px-6">
       <div className="mt-16">
           <h2 className="text-4xl md:text-5xl font-bold text-burgundy-800 dark:text-burgundy-400 mb-4">
@@ -62,7 +61,7 @@ const Projects = () => {
               <div key={index} className="relative">
                 <div className="flex flex-col lg:flex-row gap-0 relative">
                   {/* Colored block with phone and text */}
-                  <div className={` ${isEven ? 'lg:w-[60%]' : 'lg:w-[60%] lg:ml-auto'} bg-primary p-8 lg:p-12 flex flex-col lg:flex-row items-center gap-8 relative z-10`}>
+                  <div className={` ${isEven ? 'lg:w-[60%]' : 'lg:w-[60%] lg:ml-auto'} bg-primary dark:bg-black p-8 lg:p-12 flex flex-col lg:flex-row items-center gap-8 relative z-10`}>
                     {/* Phone Mockup */}
                     <div className="flex-shrink-0">
                       <div className="relative w-48 h-[400px] bg-white rounded-[2rem] p-2 shadow-xl">
@@ -73,7 +72,7 @@ const Projects = () => {
                           <img
                             src={project.image}
                             alt={project.title}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-contain"
                           />
                         </div>
                       </div>
@@ -92,16 +91,16 @@ const Projects = () => {
 
                   {/* Description panel - at bottom on small/medium, overlapping on large */}
                   <div className={`mt-8 lg:mt-0 ${isEven ? 'lg:absolute lg:right-0 lg:w-[47%]' : 'lg:absolute lg:left-0 lg:w-[47%]'} lg:top-1/2 lg:-translate-y-1/2 p-8 lg:p-12 flex flex-col justify-center z-20`}>
-                    <p className={`text-primary dark:text-slate-400 text-sm uppercase tracking-wide mb-2 ${isEven ? 'lg:text-right text-left' : 'text-left'}`}>
+                    <p className={`text-primary dark:text-white text-sm uppercase tracking-wide mb-2 ${isEven ? 'lg:text-right text-left' : 'text-left'}`}>
                       Featured Project
                     </p>
-                    <h3 className={`text-3xl lg:text-4xl font-bold text-primary dark:text-cyan-400 mb-6 ${isEven ? 'lg:text-right text-left' : 'text-left'}`}>
+                    <h3 className={`text-3xl lg:text-4xl font-bold text-primary dark:text-burgundy-400 mb-6 ${isEven ? 'lg:text-right text-left' : 'text-left'}`}>
                       {project.title}
                     </h3>
-                    <p className="text-foreground dark:text-slate-300 mb-6 py-8 px-6 rounded leading-relaxed bg-accent dark:bg-burgundy-800/80">
+                    <p className="text-foreground dark:text-white mb-6 py-8 px-6 rounded leading-relaxed bg-accent dark:bg-black">
                       {project.description}
                     </p>
-                    <p className={`text-primary dark:text-cyan-300 mb-8 font-medium ${isEven ? 'lg:text-right text-left' : 'text-left'}`}>
+                    <p className={`text-primary dark:text-white mb-8 font-medium ${isEven ? 'lg:text-right text-left' : 'text-left'}`}>
                       {project.tech}
                     </p>
                     {project.link && (

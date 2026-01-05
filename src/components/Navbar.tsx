@@ -74,7 +74,7 @@ const Navbar = () => {
                 <button
                   key={link.name}
                   onClick={() => scrollToSection(link.href)}
-                  className="px-4 py-2 text-slate-700 dark:text-slate-300 hover:text-black dark:hover:text-white font-medium transition-colors rounded-md hover:bg-slate-100 dark:hover:bg-slate-800"
+                  className="px-4 py-2 text-primary dark:text-white hover:text-primary dark:hover:text-white font-medium transition-colors rounded-md hover:bg-slate-100 dark:hover:bg-slate-800"
                 >
                   {link.name}
                 </button>
@@ -86,7 +86,7 @@ const Navbar = () => {
               {/* Dark Mode Toggle - Desktop */}
               <button
                 onClick={toggleTheme}
-                className="hidden lg:flex items-center justify-center w-10 h-10 rounded-md text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                className="hidden lg:flex items-center justify-center w-10 h-10 rounded-md text-primary dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                 aria-label="Toggle theme"
               >
                 {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
@@ -96,7 +96,7 @@ const Navbar = () => {
               <div className="flex items-center gap-2 lg:hidden">
                 <button
                   onClick={toggleTheme}
-                  className="flex items-center justify-center w-10 h-10 rounded-md text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                  className="flex items-center justify-center w-10 h-10 rounded-md text-primary dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                   aria-label="Toggle theme"
                 >
                   {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
@@ -106,7 +106,7 @@ const Navbar = () => {
                     e.stopPropagation();
                     setIsSidebarOpen(!isSidebarOpen);
                   }}
-                  className="menu-button flex items-center justify-center w-10 h-10 rounded-md text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                  className="menu-button flex items-center justify-center w-10 h-10 rounded-md text-primary dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                   aria-label="Toggle menu"
                 >
                   {isSidebarOpen ? <X size={20} /> : <Menu size={20} />}
@@ -141,7 +141,7 @@ const Navbar = () => {
                 e.stopPropagation();
                 setIsSidebarOpen(false);
               }}
-              className="flex items-center justify-center w-8 h-8 rounded-md text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                  className="flex items-center justify-center w-8 h-8 rounded-md text-primary dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
               aria-label="Close menu"
             >
               <X size={20} />
@@ -158,7 +158,7 @@ const Navbar = () => {
                     e.stopPropagation();
                     scrollToSection(link.href);
                   }}
-                  className="w-full text-left px-4 py-3 text-slate-700 dark:text-slate-300 hover:text-black dark:hover:text-white font-medium transition-colors rounded-md hover:bg-slate-100 dark:hover:bg-slate-800"
+                  className="w-full text-left px-4 py-3 text-primary dark:text-white hover:text-primary dark:hover:text-white font-medium transition-colors rounded-md hover:bg-slate-100 dark:hover:bg-slate-800"
                 >
                   {link.name}
                 </button>

@@ -116,7 +116,7 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg border-2 border-slate-200 dark:border-slate-700">
+            <div className="bg-slate-50 dark:bg-black p-6 rounded-lg border-2 border-slate-200 dark:border-slate-800">
               <h4 className="font-bold text-burgundy-800 dark:text-white mb-3">Available For</h4>
               <ul className="space-y-2 text-slate-700 dark:text-slate-300">
                 <li className="flex items-center gap-2">
@@ -152,7 +152,7 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border-2 border-slate-200 dark:border-slate-700 rounded-lg focus:border-burgundy-800 dark:focus:border-white focus:outline-none transition-colors bg-white dark:bg-slate-800 text-black dark:text-white"
+                  className="w-full px-4 py-3 border-2 border-slate-200 dark:border-slate-800 rounded-lg focus:border-burgundy-800 dark:focus:border-white focus:outline-none transition-colors bg-white dark:bg-black text-black dark:text-white"
                   placeholder="John Doe"
                 />
               </div>
@@ -168,7 +168,7 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border-2 border-slate-200 dark:border-slate-700 rounded-lg focus:border-burgundy-800 dark:focus:border-white focus:outline-none transition-colors bg-white dark:bg-slate-800 text-black dark:text-white"
+                  className="w-full px-4 py-3 border-2 border-slate-200 dark:border-slate-800 rounded-lg focus:border-burgundy-800 dark:focus:border-white focus:outline-none transition-colors bg-white dark:bg-black text-black dark:text-white"
                   placeholder="john@example.com"
                 />
               </div>
@@ -184,7 +184,7 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border-2 border-slate-200 dark:border-slate-700 rounded-lg focus:border-burgundy-800 dark:focus:border-white focus:outline-none transition-colors bg-white dark:bg-slate-800 text-black dark:text-white"
+                  className="w-full px-4 py-3 border-2 border-slate-200 dark:border-slate-800 rounded-lg focus:border-burgundy-800 dark:focus:border-white focus:outline-none transition-colors bg-white dark:bg-black text-black dark:text-white"
                   placeholder="Project Inquiry"
                 />
               </div>

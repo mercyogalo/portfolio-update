@@ -75,15 +75,15 @@ const Education = () => {
             {trainings.map((training, index) => (
               <div
                 key={index}
-                className="bg-accent dark:bg-burgundy-700 p-6 rounded-lg transition-all hover:transform hover:-translate-y-1 hover:shadow-xl"
+                className="bg-accent dark:bg-black p-6 rounded-lg transition-all hover:transform hover:-translate-y-1 hover:shadow-xl border border-slate-200 dark:border-slate-800"
               >
-                <h4 className="text-xl font-bold text-primary mb-2">{training.title}</h4>
-                <p className="text-primary font-medium mb-1">{training.organization}</p>
-                <p className="text-primary text-sm mb-4">{training.period}</p>
+                <h4 className="text-xl font-bold text-primary dark:text-burgundy-400 mb-2">{training.title}</h4>
+                <p className="text-primary dark:text-white font-medium mb-1">{training.organization}</p>
+                <p className="text-primary dark:text-white text-sm mb-4">{training.period}</p>
                 <ul className="space-y-2">
                   {training.description.map((item, idx) => (
-                    <li key={idx} className="text-primary text-sm flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
+                    <li key={idx} className="text-primary dark:text-white text-sm flex items-start gap-2">
+                      <span className="text-primary dark:text-white mt-1">•</span>
                       <span>{item}</span>
                     </li>
                   ))}
