@@ -49,7 +49,7 @@ const Projects = () => {
     <section id="projects" className="py-20 bg-white dark:bg-black">
       <div className="max-w-7xl mx-auto px-6">
       <div className="mt-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-burgundy-800 dark:text-burgundy-400 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-burgundy-800 dark:text-burgundy-600 mb-4">
             Projects
           </h2>
         </div>
@@ -61,7 +61,7 @@ const Projects = () => {
               <div key={index} className="relative">
                 <div className="flex flex-col lg:flex-row gap-0 relative">
                   {/* Colored block with phone and text */}
-                  <div className={` ${isEven ? 'lg:w-[60%]' : 'lg:w-[60%] lg:ml-auto'} bg-primary dark:bg-black p-8 lg:p-12 flex flex-col lg:flex-row items-center gap-8 relative z-10`}>
+                  <div className={` ${isEven ? 'lg:w-[60%]' : 'lg:w-[60%] lg:ml-auto'} bg-primary dark:bg-slate-900 p-8 lg:p-12 flex flex-col lg:flex-row items-center gap-8 relative z-10`}>
                     {/* Phone Mockup */}
                     <div className="flex-shrink-0">
                       <div className="relative w-48 h-[400px] bg-white rounded-[2rem] p-2 shadow-xl">
@@ -90,17 +90,17 @@ const Projects = () => {
                   </div>
 
                   {/* Description panel - at bottom on small/medium, overlapping on large */}
-                  <div className={`mt-8 lg:mt-0 ${isEven ? 'lg:absolute lg:right-0 lg:w-[47%]' : 'lg:absolute lg:left-0 lg:w-[47%]'} lg:top-1/2 lg:-translate-y-1/2 p-8 lg:p-12 flex flex-col justify-center z-20`}>
+                  <div className={`mt-8 lg:mt-0 ${isEven ? 'lg:absolute lg:right-0 lg:w-[47%]' : 'lg:absolute lg:left-0 lg:w-[47%]'} lg:top-1/2 lg:-translate-y-1/2 p-8 lg:p-12 flex flex-col justify-center z-20 dark:bg-slate-800`}>
                     <p className={`text-primary dark:text-white text-sm uppercase tracking-wide mb-2 ${isEven ? 'lg:text-right text-left' : 'text-left'}`}>
                       Featured Project
                     </p>
-                    <h3 className={`text-3xl lg:text-4xl font-bold text-primary dark:text-burgundy-400 mb-6 ${isEven ? 'lg:text-right text-left' : 'text-left'}`}>
+                    <h3 className={`text-3xl lg:text-4xl font-bold text-primary dark:text-burgundy-600 mb-6 ${isEven ? 'lg:text-right text-left' : 'text-left'}`}>
                       {project.title}
                     </h3>
                     <p className="text-foreground dark:text-white mb-6 py-8 px-6 rounded leading-relaxed bg-accent dark:bg-black">
                       {project.description}
                     </p>
-                    <p className={`text-primary dark:text-white mb-8 font-medium ${isEven ? 'lg:text-right text-left' : 'text-left'}`}>
+                    <p className={`text-primary dark:text-burgundy-600 mb-8 font-medium ${isEven ? 'lg:text-right text-left' : 'text-left'}`}>
                       {project.tech}
                     </p>
                     {project.link && (

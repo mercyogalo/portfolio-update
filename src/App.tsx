@@ -1,6 +1,7 @@
 import { Github, Linkedin, Mail, Phone, ExternalLink, Code2, Database, Palette, Server, Briefcase, GraduationCap, Award } from 'lucide-react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import Services from './components/Services';
 import About from './components/About';
 import Skills from './components/Skills';
 import Experience from './components/Experience';
@@ -14,6 +15,7 @@ function App() {
     <div className="min-h-screen bg-white dark:bg-black">
       <Navbar />
       <Hero />
+      <Services />
       <About />
       <Skills />
       <Experience />

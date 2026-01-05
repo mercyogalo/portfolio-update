@@ -89,12 +89,12 @@ const Experience = () => {
     <section id="experience" className="py-20 bg-white dark:bg-black">
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-burgundy-800 dark:text-burgundy-400 mb-4 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-burgundy-800 dark:text-burgundy-600 mb-4 text-center">
             Professional Experience
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {experiences.map((exp, index) => {
             const { visibleSkills, remainingCount } = displaySkills(exp.skills);
             return (
@@ -113,7 +113,7 @@ const Experience = () => {
                     <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1">
                       {exp.role}
                     </h3>
-                    <p className="text-burgundy-800 dark:text-burgundy-400 font-semibold mb-3">
+                    <p className="text-burgundy-800 dark:text-burgundy-600 font-semibold mb-3">
                       {exp.company}
                     </p>
                     

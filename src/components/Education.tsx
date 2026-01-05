@@ -62,10 +62,10 @@ const Education = () => {
     <section id="education" className="py-20 bg-white dark:bg-black">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-burgundy-800 dark:text-burgundy-400 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-burgundy-800 dark:text-burgundy-600 mb-4">
             Education & Training
           </h2>
-          <div className="h-1 w-20 bg-burgundy-800 dark:bg-burgundy-400 mx-auto"></div>
+          <div className="h-1 w-20 bg-burgundy-800 dark:bg-burgundy-600 mx-auto"></div>
         </div>
 
         <div>
@@ -77,7 +77,7 @@ const Education = () => {
                 key={index}
                 className="bg-accent dark:bg-black p-6 rounded-lg transition-all hover:transform hover:-translate-y-1 hover:shadow-xl border border-slate-200 dark:border-slate-800"
               >
-                <h4 className="text-xl font-bold text-primary dark:text-burgundy-400 mb-2">{training.title}</h4>
+                <h4 className="text-xl font-bold text-primary dark:text-burgundy-600 mb-2">{training.title}</h4>
                 <p className="text-primary dark:text-white font-medium mb-1">{training.organization}</p>
                 <p className="text-primary dark:text-white text-sm mb-4">{training.period}</p>
                 <ul className="space-y-2">

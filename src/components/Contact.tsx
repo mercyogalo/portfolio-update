@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle, Github, Linkedin } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 
 const Contact = () => {
@@ -61,10 +61,10 @@ const Contact = () => {
     <section id="contact" className="py-20 bg-white dark:bg-black">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-burgundy-800 dark:text-burgundy-400 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-burgundy-800 dark:text-burgundy-600 mb-4">
             Get In Touch
           </h2>
-          <div className="h-1 w-20 bg-burgundy-800 dark:bg-burgundy-400 mx-auto mb-6"></div>
+          <div className="h-1 w-20 bg-burgundy-800 dark:bg-burgundy-600 mx-auto mb-6"></div>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             Have a project in mind or just want to chat? Feel free to reach out!
           </p>
@@ -137,6 +137,41 @@ const Contact = () => {
                 </li>
               </ul>
             </div>
+            
+            <div className="flex gap-4 mt-6">
+              <a
+                href="https://github.com/mercyogalo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-burgundy-800 dark:text-burgundy-600 hover:text-burgundy-900 dark:hover:text-burgundy-400 transition-colors"
+                aria-label="GitHub"
+              >
+                <Github size={24} />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/mercy-ogalo-9a1b69272"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-burgundy-800 dark:text-burgundy-600 hover:text-burgundy-900 dark:hover:text-burgundy-400 transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={24} />
+              </a>
+              <a
+                href="mailto:ogalomercy8@gmail.com"
+                className="text-burgundy-800 dark:text-burgundy-600 hover:text-burgundy-900 dark:hover:text-burgundy-400 transition-colors"
+                aria-label="Email"
+              >
+                <Mail size={24} />
+              </a>
+              <a
+                href="tel:+254743264872"
+                className="text-burgundy-800 dark:text-burgundy-600 hover:text-burgundy-900 dark:hover:text-burgundy-400 transition-colors"
+                aria-label="Phone"
+              >
+                <Phone size={24} />
+              </a>
+            </div>
           </div>
 
           <div>
@@ -200,7 +235,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 border-2 border-slate-200 dark:border-slate-700 rounded-lg focus:border-burgundy-800 dark:focus:border-white focus:outline-none transition-colors resize-none bg-white dark:bg-slate-800 text-black dark:text-white"
+                  className="w-full px-4 py-3 border-2 border-slate-200 dark:border-slate-800 rounded-lg focus:border-burgundy-800 dark:focus:border-white focus:outline-none transition-colors resize-none bg-white dark:bg-black text-black dark:text-white"
                   placeholder="Tell me about your project..."
                 ></textarea>
               </div>
