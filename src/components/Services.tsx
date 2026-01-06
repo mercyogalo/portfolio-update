@@ -23,11 +23,6 @@ const Services = () => {
       description: 'Managing and optimizing your social media presence to grow your online community.',
     },
     {
-      title: 'Mobile App Development',
-      icon: Smartphone,
-      description: 'Developing cross-platform mobile applications for iOS and Android devices.',
-    },
-    {
       title: 'Database Management',
       icon: Database,
       description: 'Designing and managing efficient database systems for optimal performance.',
@@ -36,31 +31,31 @@ const Services = () => {
 
   return (
     <section id="services" className="py-20 bg-white dark:bg-black">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-burgundy-800 dark:text-burgundy-600 mb-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-burgundy-800 dark:text-burgundy-600 mb-4">
             Services
           </h2>
           <div className="h-1 w-20 bg-burgundy-800 dark:bg-burgundy-600 mx-auto"></div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
               <div
                 key={index}
-                className="bg-accent dark:bg-black p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-slate-200 dark:border-slate-800"
+                className="bg-background dark:bg-black p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-slate-200 dark:border-slate-800"
               >
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="bg-burgundy-800 dark:bg-burgundy-600 p-3 rounded-lg">
-                    <IconComponent className="text-white" size={32} />
+                <div className="flex items-center gap-3 sm:gap-4 mb-4">
+                  <div className="bg-burgundy-800 dark:bg-burgundy-600 p-2 sm:p-3 rounded-lg">
+                    <IconComponent className="text-white" size={20} />
                   </div>
-                  <h3 className="text-2xl font-bold text-black dark:text-white">
+                  <h3 className="text-lg sm:text-2xl font-bold text-black dark:text-white">
                     {service.title}
                   </h3>
                 </div>
-                <p className="text-black dark:text-white/80 leading-relaxed">
+                <p className="text-sm sm:text-base text-black dark:text-white/80 leading-relaxed">
                   {service.description}
                 </p>
               </div>
