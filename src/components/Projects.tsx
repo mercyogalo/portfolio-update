@@ -48,10 +48,11 @@ const Projects = () => {
   return (
     <section id="projects" className="py-12 sm:py-16 md:py-20 bg-white dark:bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-      <div className="mt-8 sm:mt-12 md:mt-16">
+      <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-burgundy-800 dark:text-burgundy-600 mb-4">
             Projects
           </h2>
+          <div className="h-1 w-20 bg-burgundy-800 dark:bg-burgundy-600 mx-auto mb-4 sm:mb-6"></div>
         </div>
 
         <div className="space-y-12 sm:space-y-16">
@@ -60,14 +61,14 @@ const Projects = () => {
             return (
               <div key={index} className="relative">
                 <div className="flex flex-col lg:flex-row gap-0 relative">
-                  {/* Colored block with phone and text */}
+                  
                   <div className={` ${isEven ? 'lg:w-[60%]' : 'lg:w-[60%] lg:ml-auto'} bg-primary dark:bg-slate-900 p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col lg:flex-row items-center gap-4 sm:gap-6 md:gap-8 relative z-10`}>
-                    {/* Phone Mockup */}
+                   
                     <div className="flex-shrink-0">
                       <div className="relative w-32 sm:w-40 md:w-48 h-[300px] sm:h-[350px] md:h-[400px] bg-white rounded-[1.5rem] sm:rounded-[2rem] p-1.5 sm:p-2 shadow-xl">
-                        {/* Phone notch */}
+                       
                         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 sm:w-20 md:w-24 h-4 sm:h-5 bg-white rounded-b-lg sm:rounded-b-xl z-10"></div>
-                        {/* Screen */}
+                       
                         <div className="w-full h-full bg-white rounded-[1rem] sm:rounded-[1.5rem] overflow-hidden">
                           <img
                             src={project.image}
@@ -78,7 +79,7 @@ const Projects = () => {
                       </div>
                     </div>
                     
-                    {/* Text on right side of colored block */}
+                    
                     <div className="flex-1 text-accent text-center lg:text-left">
                       <p className="text-xs sm:text-sm uppercase tracking-wide mb-2 font-medium">
                         {project.category}

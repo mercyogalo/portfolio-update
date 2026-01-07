@@ -96,8 +96,8 @@ const Experience = () => {
               >
                 <div className="flex items-start gap-3 sm:gap-4">
                   {/* Logo/Icon */}
-                  <div className="bg-accent w-12 h-12 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Briefcase className="text-black dark:text-white" size={24} />
+                  <div className="bg-accent w-12 h-12 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center flex-shrink-0 border-2 border-primary">
+                    <Briefcase className="text-primary" size={24} />
                   </div>
 
                   {/* Content */}
