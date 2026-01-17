@@ -42,6 +42,15 @@ const Projects = () => {
       image: 'https://s3.amazonaws.com/shecodesio-production/uploads/files/000/168/309/original/screencapture-localhost-8000-2025-06-17-12_25_42.png?1750159770',
       
     },
+
+    {
+      title: 'Lumina interiors',
+      category: 'Interior Design Website',
+      description: 'Developed a modern web application for an interior design startup to showcase their portfolio and streamline client engagement through an intuitive booking interface. The Django and React-based platform features responsive design, dynamic content management, and optimized performance for displaying high-quality interior design imagery.',
+      tech: 'Django | React | Bootstrap',
+      image: 'https://s3.amazonaws.com/shecodesio-production/uploads/files/000/177/477/original/WhatsApp_Image_2026-01-17_at_2.12.57_PM.jpeg?1768684938',
+      
+    },
     
   ];
 
