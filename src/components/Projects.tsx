@@ -1,84 +1,33 @@
 import Image from "next/image";
 import { NEUTRAL_BLUR_DATA_URL } from "@/lib/images";
+import { projects } from "@/data/projects";
 
 const Projects = () => {
-  const projects = [
-    {
-      title: 'Qatalyst Project',
-      category: 'Blockchain Project',
-      description: 'Qatalyst project is a web3 platform to help people manage staff and customers in their business. Is a platform for small business owners who have a problem with managing queues due to the number. I worked on the UI design and the frontend functionality ',
-      tech: 'Typescript | Tailwind CSS ',
-      image: 'https://s3.amazonaws.com/shecodesio-production/uploads/files/000/177/190/original/screencapture-localhost-8080-2026-01-05-17_50_50.png?1767684394',
-      
-    },
-    {
-      title: 'AgriGrow Farms',
-      category: 'Inventory Management App',
-      description: 'Comprehensive inventory management system for agriculture businesses. Features role-based authentication, dashboard analytics, and efficient tracking of stock and operations.',
-      tech: 'Django | Python | MySQL | Bootstrap | JavaScript',
-      image: 'https://s3.amazonaws.com/shecodesio-production/uploads/files/000/168/307/original/screencapture-localhost-8000-acc-home-2025-06-17-12_50_49.png?1750159724',
-      
-    },
-    {
-      title: 'Baobab Website',
-      category: 'Restaurant Website',
-      description: 'Fully responsive restaurant website showcasing Kenyan cuisine. Features contact and reservation forms with Django backend integration and mobile-optimized design.',
-      tech: 'Django | HTML5 | CSS3 | JavaScript | Bootstrap',
-      image: 'https://s3.amazonaws.com/shecodesio-production/uploads/files/000/168/308/original/screencapture-localhost-8000-2025-06-17-12_29_16.png?1750159747',
-      
-    },
-    {
-      title: 'M-treat Health Organization Site',
-      category: 'Health Organization App',
-      description: 'Dynamic health organization website with automated email system for contact forms and newsletter functionality with subscription management.',
-      tech: 'Django | React | REST API | Email Integration',
-      image: 'https://s3.amazonaws.com/shecodesio-production/uploads/files/000/177/169/original/screencapture-linkedin-in-pascal20239-2026-01-05-18_04_36.png?1767626972',
-     
-    },
-    {
-      title: 'Jay Foundation',
-      category: 'Charity Organization App',
-      description: 'Charity organization website with M-Pesa payment integration for secure donations, automated email responses, and responsive design across all devices.',
-      tech: 'Django | JavaScript | M-Pesa API | Bootstrap',
-      image: 'https://s3.amazonaws.com/shecodesio-production/uploads/files/000/168/309/original/screencapture-localhost-8000-2025-06-17-12_25_42.png?1750159770',
-      
-    },
-
-    {
-      title: 'Lumina interiors',
-      category: 'Interior Design Website',
-      description: 'Developed a modern web application for an interior design startup to showcase their portfolio and streamline client engagement through an intuitive booking interface. The Django and React-based platform features responsive design, dynamic content management, and optimized performance for displaying high-quality interior design imagery.',
-      tech: 'Django | React | Bootstrap',
-      image: 'https://s3.amazonaws.com/shecodesio-production/uploads/files/000/177/477/original/WhatsApp_Image_2026-01-17_at_2.12.57_PM.jpeg?1768684938',
-      
-    },
-    
-  ];
-
   return (
     <section id="projects" className="py-12 sm:py-16 md:py-20 bg-white dark:bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-      <div className="text-center mb-12 sm:mb-16">
+        <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-burgundy-800 dark:text-burgundy-600 mb-4">
             Projects
           </h2>
-          <div className="h-1 w-20 bg-burgundy-800 dark:bg-burgundy-600 mx-auto mb-4 sm:mb-6" aria-hidden="true"></div>
+          <div
+            className="h-1 w-20 bg-burgundy-800 dark:bg-burgundy-600 mx-auto mb-4 sm:mb-6"
+            aria-hidden="true"
+          />
         </div>
 
         <div className="space-y-12 sm:space-y-16">
           {projects.map((project, index) => {
             const isEven = index % 2 === 0;
             return (
-              <div key={index} className="relative">
+              <div key={project.title} className="relative">
                 <div className="flex flex-col lg:flex-row gap-0 relative">
-                  
-                  <div className={` ${isEven ? 'lg:w-[60%]' : 'lg:w-[60%] lg:ml-auto'} bg-primary dark:bg-slate-900 p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col lg:flex-row items-center gap-4 sm:gap-6 md:gap-8 relative z-10`}>
-                   
+                  <div
+                    className={` ${isEven ? "lg:w-[60%]" : "lg:w-[60%] lg:ml-auto"} bg-primary dark:bg-slate-900 p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col lg:flex-row items-center gap-4 sm:gap-6 md:gap-8 relative z-10`}
+                  >
                     <div className="flex-shrink-0">
                       <div className="relative w-32 sm:w-40 md:w-48 h-[300px] sm:h-[350px] md:h-[400px] bg-white rounded-[1.5rem] sm:rounded-[2rem] p-1.5 sm:p-2 shadow-xl">
-                       
-                        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 sm:w-20 md:w-24 h-4 sm:h-5 bg-white rounded-b-lg sm:rounded-b-xl z-10"></div>
-                       
+                        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 sm:w-20 md:w-24 h-4 sm:h-5 bg-white rounded-b-lg sm:rounded-b-xl z-10" />
                         <div className="relative w-full h-full bg-neutral-100 dark:bg-neutral-900 rounded-[1rem] sm:rounded-[1.5rem] overflow-hidden">
                           <Image
                             src={project.image}
@@ -93,8 +42,7 @@ const Projects = () => {
                         </div>
                       </div>
                     </div>
-                    
-                    
+
                     <div className="flex-1 text-accent text-center lg:text-left">
                       <p className="text-xs sm:text-sm uppercase tracking-wide mb-2 font-medium">
                         {project.category}
@@ -105,29 +53,33 @@ const Projects = () => {
                     </div>
                   </div>
 
-                 
-                  <div className={`mt-6 sm:mt-8 lg:mt-0 ${isEven ? 'lg:absolute lg:right-0 lg:w-[47%]' : 'lg:absolute lg:left-0 lg:w-[47%]'} lg:top-1/2 lg:-translate-y-1/2 p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-center z-20 `}>
-                    <p className={`text-primary dark:text-white text-xs sm:text-sm uppercase tracking-wide mb-2 ${isEven ? 'lg:text-right text-left' : 'text-left'}`}>
+                  <div
+                    className={`mt-6 sm:mt-8 lg:mt-0 ${isEven ? "lg:absolute lg:right-0 lg:w-[47%]" : "lg:absolute lg:left-0 lg:w-[47%]"} lg:top-1/2 lg:-translate-y-1/2 p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-center z-20 `}
+                  >
+                    <p
+                      className={`text-primary dark:text-white text-xs sm:text-sm uppercase tracking-wide mb-2 ${isEven ? "lg:text-right text-left" : "text-left"}`}
+                    >
                       Featured Project
                     </p>
-                    <h3 className={`text-2xl sm:text-3xl lg:text-4xl font-bold text-primary dark:text-burgundy-600 mb-4 sm:mb-6 ${isEven ? 'lg:text-right text-left' : 'text-left'}`}>
+                    <h3
+                      className={`text-2xl sm:text-3xl lg:text-4xl font-bold text-primary dark:text-burgundy-600 mb-4 sm:mb-6 ${isEven ? "lg:text-right text-left" : "text-left"}`}
+                    >
                       {project.title}
                     </h3>
                     <p className="text-foreground dark:text-white mb-4 sm:mb-6 py-4 sm:py-6 md:py-8 px-4 sm:px-6 rounded leading-relaxed bg-accent dark:bg-black text-sm sm:text-base">
                       {project.description}
                     </p>
-                    <p className={`text-primary dark:text-burgundy-600 mb-6 sm:mb-8 font-medium text-sm sm:text-base ${isEven ? 'lg:text-right text-left' : 'text-left'}`}>
+                    <p
+                      className={`text-primary dark:text-burgundy-600 mb-6 sm:mb-8 font-medium text-sm sm:text-base ${isEven ? "lg:text-right text-left" : "text-left"}`}
+                    >
                       {project.tech}
                     </p>
-                   
                   </div>
                 </div>
               </div>
             );
           })}
         </div>
-        
-        
       </div>
     </section>
   );

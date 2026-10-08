@@ -12,12 +12,12 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const navLinks = [
-    { name: 'About', href: '#about' },
-    { name: 'Work', href: '#projects' },
-    { name: 'Services', href: '#skills' }, // Linking to skills as services section
-    { name: 'Skills', href: '#skills' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Contact', href: '#contact' },
+    { name: "About", href: "#about" },
+    { name: "Experience", href: "#experience" },
+    { name: "Projects", href: "#projects" },
+    { name: "Skills", href: "#skills" },
+    { name: "Testimonials", href: "#testimonials" },
+    { name: "Contact", href: "#contact" },
   ];
 
   const closeSidebar = () => setIsSidebarOpen(false);
