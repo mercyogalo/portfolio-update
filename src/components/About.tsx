@@ -48,7 +48,7 @@ const About = () => {
             </h2>
 
             <p className="text-sm sm:text-base text-slate-700 dark:text-slate-300 mb-4 sm:mb-6 leading-relaxed">
-              I'm a passionate Full Stack Developer specializing in MERN stack development with extensive experience in Django, React, and modern web technologies.
+              I&apos;m a passionate Full Stack Developer specializing in MERN stack development with extensive experience in Django, React, and modern web technologies.
             </p>
 
             <p className="text-sm sm:text-base text-slate-700 dark:text-slate-300 mb-6 sm:mb-8 leading-relaxed">
