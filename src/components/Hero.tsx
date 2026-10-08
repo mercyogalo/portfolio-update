@@ -1,77 +1,86 @@
-import Image from "next/image";
-import { ArrowRight } from "lucide-react";
-import { NEUTRAL_BLUR_DATA_URL, PORTRAIT_SRC } from "@/lib/images";
+"use client";
 
-const Hero = () => {
+import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowDown } from "lucide-react";
+
+const HeroBackground = dynamic(() => import("@/components/hero/HeroBackground"), {
+  ssr: false,
+});
+
+const roles = [
+  "Full-Stack Developer",
+  "Backend Engineer",
+  "MERN & Django Developer",
+];
+
+const words = ["Mercy", "Adhiambo", "Ogalo"];
+
+export default function Hero() {
+  const reduce = useReducedMotion();
+  const [roleIndex, setRoleIndex] = useState(0);
+
+  useEffect(() => {
+    if (reduce) return;
+    const id = window.setInterval(() => {
+      setRoleIndex((index) => (index + 1) % roles.length);
+    }, 2600);
+    return () => window.clearInterval(id);
+  }, [reduce]);
+
   return (
-    <section className="relative flex min-h-svh items-center bg-background pt-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-10 md:py-12 w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-center">
-          <div>
-            <div className="mb-6 inline-block rounded-full bg-accent-tint px-4 py-2 text-sm font-medium text-accent">
-              Hello there
-            </div>
-
-            <div className="mb-6 sm:mb-8">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4">
-                <span className="text-slate-900 dark:text-white">I&apos;m </span>
-                <span className="text-accent">
-                  Mercy Adhiambo Ogalo
-                </span>
-                <span className="text-slate-900 dark:text-white">
-                  , Full Stack Developer Based in Kenya.
-                </span>
-              </h1>
-              <div
-                className="h-1 w-24 sm:w-32 bg-accent mb-4 sm:mb-6"
-                aria-hidden="true"
-              />
-            </div>
-
-            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 mb-8 sm:mb-12 leading-relaxed">
-              Specializing in MERN stack development with a passion for creating
-              responsive, user-friendly web applications. Experienced in Django,
-              React, and modern web technologies.
-            </p>
-
-            <div className="flex flex-wrap gap-3 sm:gap-4 mb-8 sm:mb-12">
-              <a
-                href="#projects"
-                className="flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm text-black hover:bg-accent-hover sm:px-7 sm:py-3 sm:text-base"
-              >
-                View My Portfolio
-                <ArrowRight size={16} aria-hidden="true" />
-              </a>
-
-              <a
-                href="#contact"
-                className="rounded-full border-2 border-foreground px-5 py-2.5 text-sm text-foreground hover:border-accent hover:text-accent sm:px-7 sm:py-3 sm:text-base"
-              >
-                Hire Me
-              </a>
-            </div>
-          </div>
-
-          <div className="flex justify-center md:justify-end">
-            <div className="relative w-full max-w-md aspect-square">
-              <Image
-                src={PORTRAIT_SRC}
-                alt="Portrait of Mercy Adhiambo Ogalo, full-stack developer based in Nairobi, Kenya"
-                fill
-                priority
-                sizes="(max-width: 768px) 90vw, 448px"
-                quality={75}
-                placeholder="blur"
-                blurDataURL={NEUTRAL_BLUR_DATA_URL}
-                className="object-cover rounded-full
-                  dark:shadow-[0_0_70px_rgba(220,38,38,0.45),0_0_140px_rgba(249,115,22,0.35)]"
-              />
-            </div>
-          </div>
+    <section className="relative flex min-h-svh items-center justify-center overflow-hidden px-4 pt-20">
+      <HeroBackground />
+      <div className="relative z-10 mx-auto max-w-4xl text-center">
+        <h1 className="font-display text-4xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl">
+          {words.map((word, index) => (
+            <motion.span
+              key={word}
+              className="mr-[0.3em] inline-block last:mr-0"
+              initial={reduce ? false : { opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.12, ease: "easeOut" }}
+            >
+              {word}
+            </motion.span>
+          ))}
+        </h1>
+        <p className="mt-6 min-h-[2rem] text-lg text-accent sm:text-xl" aria-live="polite">
+          {roles[roleIndex]}
+        </p>
+        <p className="mx-auto mt-4 max-w-2xl text-base text-muted sm:text-lg">
+          I build and ship production web apps, REST APIs, payment integrations
+          and admin dashboards.
+        </p>
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <a
+            href="#projects"
+            className="rounded-full bg-accent px-7 py-3 text-sm font-semibold text-black hover:bg-accent-hover"
+          >
+            View Projects
+          </a>
+          <a
+            href="#about"
+            className="rounded-full border border-foreground px-7 py-3 text-sm font-semibold hover:border-accent hover:text-accent"
+          >
+            About me
+          </a>
         </div>
+        <a
+          href="#about"
+          className="mt-16 inline-flex flex-col items-center gap-2 text-xs uppercase tracking-[0.2em] text-muted hover:text-accent"
+        >
+          Scroll
+          <motion.span
+            aria-hidden="true"
+            animate={reduce ? undefined : { y: [0, 8, 0] }}
+            transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <ArrowDown size={16} />
+          </motion.span>
+        </a>
       </div>
     </section>
   );
-};
-
-export default Hero;
+}
