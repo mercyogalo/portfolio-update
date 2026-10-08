@@ -2,10 +2,12 @@ import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import {
+  CONTACT_EMAIL,
   PERSON_NAME,
   SITE_DESCRIPTION,
   SITE_KEYWORDS,
   SITE_NAME,
+  SOCIAL_LINKS,
   getSiteUrl,
 } from "@/lib/site";
 import "./globals.css";
@@ -84,6 +86,56 @@ export const viewport: Viewport = {
 
 const themeInitScript = `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light'){document.documentElement.classList.add(t);}else if(window.matchMedia('(prefers-color-scheme: dark)').matches){document.documentElement.classList.add('dark');}else{document.documentElement.classList.add('light');}}catch(e){}})();`;
 
+function JsonLd() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        name: PERSON_NAME,
+        alternateName: "Ogalo Mercy",
+        jobTitle: "Full-Stack Developer",
+        url: siteUrl,
+        image: `${siteUrl}/opengraph-image`,
+        email: `mailto:${CONTACT_EMAIL}`,
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Nairobi",
+          addressCountry: "KE",
+        },
+        sameAs: [SOCIAL_LINKS.github, SOCIAL_LINKS.linkedin],
+        knowsAbout: [
+          "Django",
+          "Node.js",
+          "React",
+          "Next.js",
+          "PostgreSQL",
+          "MongoDB",
+          "payment integrations",
+        ],
+        alumniOf: {
+          "@type": "CollegeOrUniversity",
+          name: "JKUAT",
+        },
+      },
+      {
+        "@type": "WebSite",
+        name: SITE_NAME,
+        url: siteUrl,
+      },
+    ],
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
+      }}
+    />
+  );
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -93,6 +145,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <JsonLd />
         <ThemeProvider>{children}</ThemeProvider>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-W5DVJ7HMBJ"
