@@ -13,10 +13,9 @@ shadcn/ui has been successfully installed and configured in your project!
 2. **Configuration Files:**
    - `components.json` - shadcn/ui configuration
    - `tailwind.config.js` - Updated with shadcn/ui theme
-   - `src/index.css` - Added CSS variables for theming
+   - `src/app/globals.css` - Added CSS variables for theming
    - `src/lib/utils.ts` - Created `cn()` utility function
-   - `vite.config.ts` - Added path aliases (@/*)
-   - `tsconfig.app.json` - Added path aliases support
+   - `tsconfig.json` - Added path aliases support
 
 3. **Path Aliases:**
    - `@/components` → `./src/components`

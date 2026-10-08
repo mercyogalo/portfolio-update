@@ -1,5 +1,7 @@
+"use client";
+
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle, Github, Linkedin } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 
 const Contact = () => {

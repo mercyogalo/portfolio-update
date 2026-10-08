@@ -1,5 +1,3 @@
-import { BookOpen } from 'lucide-react';
-
 const Education = () => {
   
 

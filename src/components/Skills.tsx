@@ -1,4 +1,4 @@
-import { Code2, Database, Palette, Server, Wrench, MessageSquare } from 'lucide-react';
+import { Code2, Database, Palette, Server } from 'lucide-react';
 
 const Skills = () => {
   const skillCategories = [

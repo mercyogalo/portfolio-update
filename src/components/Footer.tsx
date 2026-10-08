@@ -1,4 +1,6 @@
-import { Github, Linkedin, Mail, Phone, Heart, ExternalLink } from 'lucide-react';
+"use client";
+
+import { Github, Linkedin, Mail, Phone } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 
 const Footer = () => {

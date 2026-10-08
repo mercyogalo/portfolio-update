@@ -1,4 +1,4 @@
-import { Globe, Code, Palette, Share2, Smartphone, Database } from 'lucide-react';
+import { Globe, Code, Palette, Share2, Database } from 'lucide-react';
 
 const Services = () => {
   const services = [
