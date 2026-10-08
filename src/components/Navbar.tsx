@@ -5,6 +5,15 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Menu, Moon, Sun, X } from "lucide-react";
 import { useTheme } from "next-themes";
 import { navLinks, sectionIds } from "@/data/nav";
+import { getPublishedTestimonials } from "@/data/testimonials";
+
+const hasTestimonials = getPublishedTestimonials().length > 0;
+const links = hasTestimonials
+  ? navLinks
+  : navLinks.filter((link) => link.href !== "#testimonials");
+const observedIds = hasTestimonials
+  ? sectionIds
+  : sectionIds.filter((id) => id !== "testimonials");
 
 export default function Navbar() {
   const { resolvedTheme, setTheme } = useTheme();
@@ -23,7 +32,7 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    const nodes = sectionIds
+    const nodes = observedIds
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => Boolean(el));
 
@@ -71,7 +80,7 @@ export default function Navbar() {
           </a>
 
           <div className="hidden items-center gap-1 lg:flex">
-            {navLinks.map((link) => {
+            {links.map((link) => {
               const id = link.href.slice(1);
               const label = "shortName" in link ? link.shortName : link.name;
               const isActive = active === id;
@@ -134,7 +143,7 @@ export default function Navbar() {
               </button>
             </div>
             <div className="space-y-2">
-              {navLinks.map((link) => (
+              {links.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}

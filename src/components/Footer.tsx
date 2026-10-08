@@ -21,7 +21,9 @@ const Footer = () => {
           <div>
             <p className="mb-3 font-display text-lg font-bold">Quick Links</p>
             <ul className="space-y-2">
-              {navLinks.map((link) => (
+              {navLinks
+                .filter((link) => link.href !== "#testimonials" || process.env.NODE_ENV !== "production")
+                .map((link) => (
                 <li key={link.href}>
                   <a href={link.href} className="text-sm text-muted hover:text-accent">
                     {link.name}
