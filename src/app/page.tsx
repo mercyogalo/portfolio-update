@@ -14,7 +14,7 @@ const HashFocus = dynamic(() => import("@/components/HashFocus"));
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white dark:bg-black">
+    <div className="min-h-svh bg-background text-foreground">
       <Navbar />
       <main id="main-content" tabIndex={-1} className="outline-none">
         <Hero />

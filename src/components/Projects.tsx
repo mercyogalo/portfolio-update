@@ -7,11 +7,11 @@ const Projects = () => {
     <section id="projects" className="py-12 sm:py-16 md:py-20 bg-white dark:bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-burgundy-800 dark:text-burgundy-600 mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-accent mb-4">
             Projects
           </h2>
           <div
-            className="h-1 w-20 bg-burgundy-800 dark:bg-burgundy-600 mx-auto mb-4 sm:mb-6"
+            className="h-1 w-20 bg-accent mx-auto mb-4 sm:mb-6"
             aria-hidden="true"
           />
         </div>
@@ -62,15 +62,15 @@ const Projects = () => {
                       Featured Project
                     </p>
                     <h3
-                      className={`text-2xl sm:text-3xl lg:text-4xl font-bold text-primary dark:text-burgundy-600 mb-4 sm:mb-6 ${isEven ? "lg:text-right text-left" : "text-left"}`}
+                      className={`text-2xl sm:text-3xl lg:text-4xl font-bold text-primary dark:text-accent mb-4 sm:mb-6 ${isEven ? "lg:text-right text-left" : "text-left"}`}
                     >
                       {project.title}
                     </h3>
-                    <p className="text-foreground dark:text-white mb-4 sm:mb-6 py-4 sm:py-6 md:py-8 px-4 sm:px-6 rounded leading-relaxed bg-accent dark:bg-black text-sm sm:text-base">
+                    <p className="mb-4 rounded border border-border bg-background px-4 py-4 text-sm leading-relaxed text-foreground sm:mb-6 sm:px-6 sm:py-6 md:py-8 sm:text-base">
                       {project.description}
                     </p>
                     <p
-                      className={`text-primary dark:text-burgundy-600 mb-6 sm:mb-8 font-medium text-sm sm:text-base ${isEven ? "lg:text-right text-left" : "text-left"}`}
+                      className={`text-primary dark:text-accent mb-6 sm:mb-8 font-medium text-sm sm:text-base ${isEven ? "lg:text-right text-left" : "text-left"}`}
                     >
                       {project.tech}
                     </p>

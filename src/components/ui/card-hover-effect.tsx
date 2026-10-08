@@ -27,12 +27,12 @@ export const HoverEffect = ({
             className="relative group block h-full w-full"
           >
             {/* Hover background effect */}
-            <div className="absolute inset-0 h-full w-full bg-burgundy-100 dark:bg-burgundy-900/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-0"></div>
+            <div className="absolute inset-0 h-full w-full bg-accent-tint/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-0"></div>
             
             <Card>
               {IconComponent && (
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="bg-burgundy-800 dark:bg-burgundy-600 p-3 rounded-lg">
+                  <div className="bg-accent p-3 rounded-lg">
                     <IconComponent className="text-white" size={32} />
                   </div>
                   <CardTitle>{item.title}</CardTitle>
@@ -58,7 +58,7 @@ export const Card = ({
   return (
     <div
       className={cn(
-        "rounded-xl h-full w-full p-8 overflow-hidden bg-accent dark:bg-black border border-slate-200 dark:border-slate-800 group-hover:border-burgundy-300 dark:group-hover:border-burgundy-700 relative z-10 transition-all duration-300",
+        "relative z-10 h-full w-full overflow-hidden rounded-xl border border-border bg-background p-8 transition-all duration-300 group-hover:border-accent",
         className
       )}
     >

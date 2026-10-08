@@ -52,10 +52,10 @@ const Skills = () => {
     <section id="skills" className="py-12 sm:py-16 md:py-20 bg-white dark:bg-black">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-burgundy-800 dark:text-burgundy-600 mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-accent mb-4">
             Skills & Expertise
           </h2>
-          <div className="h-1 w-20 bg-burgundy-800 dark:bg-burgundy-600 mx-auto" aria-hidden="true"></div>
+          <div className="h-1 w-20 bg-accent mx-auto" aria-hidden="true"></div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
@@ -67,19 +67,19 @@ const Skills = () => {
               {/* Skills List - Always visible */}
               <div className="flex flex-col justify-start">
                 <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                  <category.icon className="text-burgundy-800 dark:text-burgundy-600" size={20} />
-                  <h3 className="text-lg sm:text-xl font-bold text-burgundy-800 dark:text-burgundy-600">{category.title}</h3>
+                  <category.icon className="text-accent" size={20} />
+                  <h3 className="text-lg sm:text-xl font-bold text-accent">{category.title}</h3>
                 </div>
                 <div className="space-y-2 sm:space-y-3">
                   {category.skills.map((skill, idx) => (
                     <div key={idx}>
                       <div className="flex justify-between mb-1">
                         <span className="text-slate-700 dark:text-slate-300 font-medium text-xs sm:text-sm">{skill.name}</span>
-                        <span className="text-burgundy-800 dark:text-burgundy-600 text-xs font-semibold">{skill.level}%</span>
+                        <span className="text-accent text-xs font-semibold">{skill.level}%</span>
                       </div>
                       <div className="h-1.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
                         <div
-                          className="h-full bg-burgundy-800 dark:bg-burgundy-600 rounded-full transition-all duration-1000 ease-out"
+                          className="h-full bg-accent rounded-full transition-all duration-1000 ease-out"
                           style={{ width: `${skill.level}%` }}
                         ></div>
                       </div>

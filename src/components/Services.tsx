@@ -33,10 +33,10 @@ const Services = () => {
     <section id="services" className="py-20 bg-white dark:bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-burgundy-800 dark:text-burgundy-600 mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-accent mb-4">
             Services
           </h2>
-          <div className="h-1 w-20 bg-burgundy-800 dark:bg-burgundy-600 mx-auto" aria-hidden="true"></div>
+          <div className="h-1 w-20 bg-accent mx-auto" aria-hidden="true"></div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
@@ -48,7 +48,7 @@ const Services = () => {
                 className="bg-background dark:bg-black p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-slate-200 dark:border-slate-800"
               >
                 <div className="flex items-center gap-3 sm:gap-4 mb-4">
-                  <div className="bg-burgundy-800 dark:bg-burgundy-600 p-2 sm:p-3 rounded-lg">
+                  <div className="bg-accent p-2 sm:p-3 rounded-lg">
                     <IconComponent className="text-white" size={20} />
                   </div>
                   <h3 className="text-lg sm:text-2xl font-bold text-black dark:text-white">

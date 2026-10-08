@@ -6,7 +6,7 @@ const About = () => {
   const skills = ['React.js', 'Django', 'Express.js', 'TypeScript', 'Node.js', 'Mpesa integration']
 
   return (
-    <section id="about" className="py-12 sm:py-16 md:py-20 bg-accent dark:bg-black">
+    <section id="about" className="bg-background py-12 sm:py-16 md:py-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center">
           <div className="flex justify-center md:justify-start order-2 md:order-1">
@@ -27,7 +27,7 @@ const About = () => {
                 {skills.map((skill, index) => (
                   <div
                     key={index}
-                    className="bg-burgundy-800 dark:bg-burgundy-600 text-white px-2 sm:px-3 py-1 rounded-full text-xs font-medium whitespace-nowrap"
+                    className="whitespace-nowrap rounded-full bg-accent px-2 py-1 text-xs font-medium text-black sm:px-3"
                   >
                     {skill}
                   </div>
@@ -38,7 +38,7 @@ const About = () => {
 
           <div className="order-1 md:order-2">
             <div className="flex items-center gap-2 mb-3 sm:mb-4">
-              <p className="text-primary dark:text-white text-xs sm:text-sm uppercase tracking-wide font-bold dark:text-burgundy-600">
+              <p className="text-primary dark:text-white text-xs sm:text-sm uppercase tracking-wide font-bold dark:text-accent">
                 About Me
               </p>
             </div>
@@ -56,16 +56,12 @@ const About = () => {
             </p>
 
             <a
-              href="/Mercy_Adhiambo_Ogalo_CV.pdf"
+              href="/Mercy-Ogalo-CV.pdf"
               download
-              className="inline-flex items-center gap-1 bg-primary p-1 rounded-full hover:opacity-90 transition-opacity"
+              className="inline-flex items-center gap-2 rounded-full border border-foreground px-5 py-2.5 text-sm font-medium hover:border-accent hover:text-accent"
             >
-              <span className="bg-accent text-primary px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium text-xs sm:text-sm md:text-base">
-                Download CV
-              </span>
-              <span className="bg-accent p-2 sm:p-3 rounded-full flex items-center justify-center">
-                <ArrowRight size={12} className="text-primary sm:w-[18px] sm:h-[18px]" />
-              </span>
+              Download CV
+              <ArrowRight size={16} aria-hidden="true" />
             </a>
           </div>
         </div>

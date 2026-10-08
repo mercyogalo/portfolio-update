@@ -4,18 +4,18 @@ import { NEUTRAL_BLUR_DATA_URL, PORTRAIT_SRC } from "@/lib/images";
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center bg-accent dark:bg-black relative pt-16">
+    <section className="relative flex min-h-svh items-center bg-background pt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-10 md:py-12 w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-center">
           <div>
-            <div className="inline-block mb-6 px-4 py-2 bg-burgundy-800 dark:bg-burgundy-600 text-white rounded-full text-sm font-medium">
+            <div className="mb-6 inline-block rounded-full bg-accent-tint px-4 py-2 text-sm font-medium text-accent">
               Hello there
             </div>
 
             <div className="mb-6 sm:mb-8">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4">
                 <span className="text-slate-900 dark:text-white">I&apos;m </span>
-                <span className="text-burgundy-800 dark:text-burgundy-600">
+                <span className="text-accent">
                   Mercy Adhiambo Ogalo
                 </span>
                 <span className="text-slate-900 dark:text-white">
@@ -23,7 +23,7 @@ const Hero = () => {
                 </span>
               </h1>
               <div
-                className="h-1 w-24 sm:w-32 bg-burgundy-800 dark:bg-burgundy-600 mb-4 sm:mb-6"
+                className="h-1 w-24 sm:w-32 bg-accent mb-4 sm:mb-6"
                 aria-hidden="true"
               />
             </div>
@@ -37,15 +37,15 @@ const Hero = () => {
             <div className="flex flex-wrap gap-3 sm:gap-4 mb-8 sm:mb-12">
               <a
                 href="#projects"
-                className="flex items-center gap-2 px-5 sm:px-7 py-2.5 sm:py-3 bg-burgundy-800 dark:bg-burgundy-600 text-white rounded-full hover:bg-burgundy-900 dark:hover:bg-burgundy-700 transition-colors text-sm sm:text-base"
+                className="flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm text-black hover:bg-accent-hover sm:px-7 sm:py-3 sm:text-base"
               >
                 View My Portfolio
-                <ArrowRight size={16} className="text-accent" aria-hidden="true" />
+                <ArrowRight size={16} aria-hidden="true" />
               </a>
 
               <a
                 href="#contact"
-                className="px-5 sm:px-7 py-2.5 sm:py-3 border-2 border-burgundy-800 dark:border-burgundy-600 text-burgundy-800 dark:text-burgundy-600 rounded-full hover:bg-burgundy-800 dark:hover:bg-burgundy-600 hover:text-white dark:hover:text-white transition-colors text-sm sm:text-base"
+                className="rounded-full border-2 border-foreground px-5 py-2.5 text-sm text-foreground hover:border-accent hover:text-accent sm:px-7 sm:py-3 sm:text-base"
               >
                 Hire Me
               </a>

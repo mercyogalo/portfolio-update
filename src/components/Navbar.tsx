@@ -1,175 +1,118 @@
 "use client";
 
-import { useState, useEffect } from 'react';
-import Image from "next/image";
-import { Moon, Sun, Menu, X } from 'lucide-react';
-import { useTheme } from '../contexts/ThemeContext';
-import { LOGO_DARK_SRC, LOGO_LIGHT_SRC, NEUTRAL_BLUR_DATA_URL } from "@/lib/images";
+import { useState, useEffect } from "react";
+import { Moon, Sun, Menu, X } from "lucide-react";
+import { useTheme } from "next-themes";
+import { navLinks } from "@/data/nav";
 
 const Navbar = () => {
-  const { theme, toggleTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const navLinks = [
-    { name: "About", href: "#about" },
-    { name: "Experience", href: "#experience" },
-    { name: "Projects", href: "#projects" },
-    { name: "Skills", href: "#skills" },
-    { name: "Testimonials", href: "#testimonials" },
-    { name: "Contact", href: "#contact" },
-  ];
-
-  const closeSidebar = () => setIsSidebarOpen(false);
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
-    if (isSidebarOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-
+    document.body.style.overflow = isSidebarOpen ? "hidden" : "";
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     };
   }, [isSidebarOpen]);
 
+  const closeSidebar = () => setIsSidebarOpen(false);
+  const isDark = resolvedTheme === "dark";
+
   return (
-    <>
+    <header>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed left-0 right-0 top-0 z-50 transition-colors ${
           isScrolled
-            ? 'bg-white dark:bg-black shadow-md'
-            : 'bg-white/95 dark:bg-black/95 backdrop-blur-sm'
+            ? "border-b border-border bg-background/80 backdrop-blur-md"
+            : "bg-background/95"
         }`}
+        aria-label="Primary"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
-            {/* Logo */}
-            <div className="flex-shrink-0">
-              <a href="#main-content" className="inline-flex">
-                <Image
-                  src={theme === "dark" ? LOGO_DARK_SRC : LOGO_LIGHT_SRC}
-                  alt="Ogalo Mercy Portfolio"
-                  width={160}
-                  height={80}
-                  quality={75}
-                  placeholder="blur"
-                  blurDataURL={NEUTRAL_BLUR_DATA_URL}
-                  className="h-20 w-auto object-contain"
-                />
-              </a>
-            </div>
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+          <a href="#main-content" className="font-display text-xl font-bold tracking-tight">
+            Mercy<span className="text-accent">.</span>
+          </a>
 
-            {/* Desktop Navigation Links */}
-            <div className="hidden lg:flex items-center space-x-1">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="px-4 py-2 text-primary dark:text-white hover:text-primary dark:hover:text-white font-medium transition-colors rounded-md hover:bg-slate-100 dark:hover:bg-slate-800"
-                >
-                  {link.name}
-                </a>
-              ))}
-            </div>
-
-            {/* Right side icons */}
-            <div className="flex items-center gap-4">
-              {/* Dark Mode Toggle - Desktop */}
-              <button
-                onClick={toggleTheme}
-                className="hidden lg:flex items-center justify-center w-10 h-10 rounded-md text-primary dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                aria-label="Toggle theme"
+          <div className="hidden items-center gap-1 lg:flex">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="rounded-md px-3 py-2 text-sm font-medium text-foreground hover:text-accent"
               >
-                {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-              </button>
+                {"shortName" in link ? link.shortName : link.name}
+              </a>
+            ))}
+          </div>
 
-              {/* Mobile/Tablet: Dark Mode Toggle + Menu Button */}
-              <div className="flex items-center gap-2 lg:hidden">
-                <button
-                  onClick={toggleTheme}
-                  className="flex items-center justify-center w-10 h-10 rounded-md text-primary dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                  aria-label="Toggle theme"
-                >
-                  {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-                </button>
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setIsSidebarOpen(!isSidebarOpen);
-                  }}
-                  className="menu-button flex items-center justify-center w-10 h-10 rounded-md text-primary dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                  aria-label="Toggle menu"
-                >
-                  {isSidebarOpen ? <X size={20} /> : <Menu size={20} />}
-                </button>
-              </div>
-            </div>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setTheme(isDark ? "light" : "dark")}
+              className="flex h-10 w-10 items-center justify-center rounded-md text-foreground hover:text-accent"
+              aria-label="Toggle theme"
+            >
+              {mounted && isDark ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
+            <button
+              type="button"
+              className="flex h-10 w-10 items-center justify-center rounded-md lg:hidden"
+              onClick={() => setIsSidebarOpen((open) => !open)}
+              aria-label="Toggle menu"
+              aria-expanded={isSidebarOpen}
+            >
+              {isSidebarOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
           </div>
         </div>
       </nav>
 
-      {/* Overlay for mobile sidebar */}
       {isSidebarOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
-          onClick={() => setIsSidebarOpen(false)}
+          className="fixed inset-0 z-40 bg-black/50 lg:hidden"
+          onClick={closeSidebar}
         />
       )}
 
-      {/* Mobile/Tablet Sidebar */}
       <div
-        className={`sidebar fixed inset-y-0 right-0 z-[60] w-64 bg-white dark:bg-black shadow-xl transform transition-transform duration-300 ease-in-out lg:hidden ${
-          isSidebarOpen ? 'translate-x-0' : 'translate-x-full'
+        className={`fixed inset-y-0 right-0 z-[60] w-64 border-l border-border bg-background shadow-xl transition-transform duration-300 lg:hidden ${
+          isSidebarOpen ? "translate-x-0" : "translate-x-full"
         }`}
-        onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex flex-col h-full">
-          {/* Sidebar Header */}
-          <div className="flex items-center justify-between p-6 border-b border-slate-200 dark:border-slate-700">
-            <span className="text-xl font-bold text-black dark:text-white">Menu</span>
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                setIsSidebarOpen(false);
-              }}
-                  className="flex items-center justify-center w-8 h-8 rounded-md text-primary dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-              aria-label="Close menu"
-            >
+        <div className="flex h-full flex-col p-6">
+          <div className="mb-6 flex items-center justify-between">
+            <span className="font-display text-lg font-bold">Menu</span>
+            <button type="button" onClick={closeSidebar} aria-label="Close menu">
               <X size={20} />
             </button>
           </div>
-
-          {/* Sidebar Navigation Links */}
-          <nav className="flex-1 overflow-y-auto p-6">
-            <div className="space-y-2">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={closeSidebar}
-                  className="block w-full text-left px-4 py-3 text-primary dark:text-white hover:text-primary dark:hover:text-white font-medium transition-colors rounded-md hover:bg-slate-100 dark:hover:bg-slate-800"
-                >
-                  {link.name}
-                </a>
-              ))}
-            </div>
-          </nav>
+          <div className="space-y-2">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={closeSidebar}
+                className="block rounded-md px-4 py-3 font-medium hover:text-accent"
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
-    </>
+    </header>
   );
 };
 
 export default Navbar;
-
