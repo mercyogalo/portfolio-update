@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import { ScrollProgress } from "@/components/motion";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -15,6 +16,7 @@ const HashFocus = dynamic(() => import("@/components/HashFocus"));
 export default function Home() {
   return (
     <div className="min-h-svh bg-background text-foreground">
+      <ScrollProgress />
       <Navbar />
       <main id="main-content" tabIndex={-1} className="outline-none">
         <Hero />
