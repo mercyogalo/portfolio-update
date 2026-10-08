@@ -1,4 +1,5 @@
-import { ExternalLink } from 'lucide-react';
+import Image from "next/image";
+import { NEUTRAL_BLUR_DATA_URL } from "@/lib/images";
 
 const Projects = () => {
   const projects = [
@@ -78,11 +79,16 @@ const Projects = () => {
                        
                         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 sm:w-20 md:w-24 h-4 sm:h-5 bg-white rounded-b-lg sm:rounded-b-xl z-10"></div>
                        
-                        <div className="w-full h-full bg-white rounded-[1rem] sm:rounded-[1.5rem] overflow-hidden">
-                          <img
+                        <div className="relative w-full h-full bg-neutral-100 dark:bg-neutral-900 rounded-[1rem] sm:rounded-[1.5rem] overflow-hidden">
+                          <Image
                             src={project.image}
                             alt={`${project.title} project screenshot, ${project.category}`}
-                            className="w-full h-full object-contain"
+                            fill
+                            sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, 192px"
+                            quality={75}
+                            placeholder="blur"
+                            blurDataURL={NEUTRAL_BLUR_DATA_URL}
+                            className="object-contain"
                           />
                         </div>
                       </div>

@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
@@ -8,8 +9,9 @@ import Projects from "@/components/Projects";
 import Education from "@/components/Education";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
-import HashFocus from "@/components/HashFocus";
+
+const WhatsAppButton = dynamic(() => import("@/components/WhatsAppButton"));
+const HashFocus = dynamic(() => import("@/components/HashFocus"));
 
 export default function Home() {
   return (

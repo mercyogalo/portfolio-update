@@ -1,7 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { Github, Linkedin, Mail, Phone } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
+import { LOGO_DARK_SRC, LOGO_LIGHT_SRC, NEUTRAL_BLUR_DATA_URL } from "@/lib/images";
 
 const Footer = () => {
   const { theme } = useTheme();
@@ -20,12 +22,14 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 mb-6 md:mb-8">
           <div className="sm:col-span-2 md:col-span-1">
-            <img
-              src={theme === 'dark' 
-                ? "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/176/854/original/1.png?1766902274"
-                : "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/176/832/original/5.png?1766861085"
-              }
+            <Image
+              src={theme === "dark" ? LOGO_DARK_SRC : LOGO_LIGHT_SRC}
               alt="Ogalo Mercy Portfolio"
+              width={128}
+              height={64}
+              quality={75}
+              placeholder="blur"
+              blurDataURL={NEUTRAL_BLUR_DATA_URL}
               className="h-12 sm:h-16 w-auto object-contain mb-3 md:mb-4 rounded-full"
             />
             <p className="text-xl sm:text-2xl font-bold mb-3 md:mb-4 text-white">Mercy Adhiambo Ogalo</p>

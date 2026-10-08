@@ -1,8 +1,10 @@
 "use client";
 
 import { useState, useEffect } from 'react';
+import Image from "next/image";
 import { Moon, Sun, Menu, X } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
+import { LOGO_DARK_SRC, LOGO_LIGHT_SRC, NEUTRAL_BLUR_DATA_URL } from "@/lib/images";
 
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
@@ -55,14 +57,16 @@ const Navbar = () => {
             {/* Logo */}
             <div className="flex-shrink-0">
               <a href="#main-content" className="inline-flex">
-                <img
-                src={theme === 'dark' 
-                  ? "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/176/854/original/1.png?1766902274"
-                  : "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/176/832/original/5.png?1766861085"
-                }
-                alt="Ogalo Mercy Portfolio"
-                className="h-20 w-auto object-contain"
-              />
+                <Image
+                  src={theme === "dark" ? LOGO_DARK_SRC : LOGO_LIGHT_SRC}
+                  alt="Ogalo Mercy Portfolio"
+                  width={160}
+                  height={80}
+                  quality={75}
+                  placeholder="blur"
+                  blurDataURL={NEUTRAL_BLUR_DATA_URL}
+                  className="h-20 w-auto object-contain"
+                />
               </a>
             </div>
 

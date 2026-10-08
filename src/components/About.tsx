@@ -1,4 +1,6 @@
+import Image from "next/image";
 import { ArrowRight } from 'lucide-react'
+import { NEUTRAL_BLUR_DATA_URL, PORTRAIT_SRC } from "@/lib/images";
 
 const About = () => {
   const skills = ['React.js', 'Django', 'Express.js', 'TypeScript', 'Node.js', 'Mpesa integration']
@@ -9,10 +11,15 @@ const About = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center">
           <div className="flex justify-center md:justify-start order-2 md:order-1">
             <div className="relative w-full max-w-sm sm:max-w-md aspect-square">
-              <img
-                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/176/855/original/WhatsApp_Image_2025-12-28_at_10.34.40_AM.jpeg?1766907331"
+              <Image
+                src={PORTRAIT_SRC}
                 alt="Mercy Adhiambo Ogalo standing for a professional portrait"
-                className="w-full h-full object-cover rounded-full
+                fill
+                sizes="(max-width: 768px) 90vw, 448px"
+                quality={75}
+                placeholder="blur"
+                blurDataURL={NEUTRAL_BLUR_DATA_URL}
+                className="object-cover rounded-full
                   dark:shadow-[0_0_70px_rgba(220,38,38,0.45),0_0_140px_rgba(249,115,22,0.35)]"
               />
 
