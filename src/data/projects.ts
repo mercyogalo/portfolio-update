@@ -10,6 +10,36 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: "Global Policy House Official Website",
+    category: "Organization Website / Events Platform",
+    description:
+      "Official website for Global Policy House. I built and maintain the Django backend on PostgreSQL, including event registration and booking with Stripe, PayPal and Flutterwave payments, and backend functionality powering an admin dashboard for managing registrations and website data. Automated email notifications are sent via Resend, with background task processing handled by Celery.",
+    tech: "Django | PostgreSQL | Celery | Resend | Stripe | PayPal | Flutterwave",
+    image:
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/181/671/original/gph-website.png?1791476446",
+    frame: "browser",
+  },
+  {
+    title: "Kingdom of Kush Website",
+    category: "Citizenship & Passport Application Platform",
+    description:
+      "Platform for passport and citizenship applications. I developed the Django and PostgreSQL backend covering application submission, data processing and administrative management, plus the backend behind an admin dashboard for managing application data and records. Also includes an event booking system with Stripe, PayPal and Flutterwave, with Celery handling asynchronous processes and Resend sending automated emails.",
+    tech: "Django | PostgreSQL | Celery | Resend | Stripe | PayPal | Flutterwave",
+    image:
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/181/672/original/kingdom_of_kush_website.png?1791476482",
+    frame: "browser",
+  },
+  {
+    title: "StayEasy",
+    category: "Booking Platform",
+    description:
+      "Booking platform with Next.js, NestJS and MongoDB. M-Pesa Daraja STK Push with async callbacks, JWT auth with role-based access, booking conflict prevention with scheduled expiry of unpaid bookings, WebSocket real-time reviews, Cloudinary and Resend.",
+    tech: "Next.js | NestJS | MongoDB | M-Pesa Daraja | JWT | Cloudinary | Resend",
+    image: "/images/stayeasy-placeholder.svg",
+    frame: "browser",
+    placeholder: true, // TODO: add screenshot
+  },
+  {
     title: "Qatalyst Project",
     category: "Blockchain Project",
     description:
@@ -17,7 +47,7 @@ export const projects: Project[] = [
     tech: "Typescript | Tailwind CSS ",
     image:
       "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/177/190/original/screencapture-localhost-8080-2026-01-05-17_50_50.png?1767684394",
-    frame: "phone",
+    frame: "browser",
   },
   {
     title: "AgriGrow Farms",
@@ -28,7 +58,7 @@ export const projects: Project[] = [
     tech: "Django | Python | MySQL | Bootstrap | JavaScript",
     image:
       "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/168/307/original/screencapture-localhost-8000-acc-home-2025-06-17-12_50_49.png?1750159724",
-    frame: "phone",
+    frame: "browser",
   },
   {
     title: "Baobab Website",
@@ -39,7 +69,7 @@ export const projects: Project[] = [
     tech: "Django | HTML5 | CSS3 | JavaScript | Bootstrap",
     image:
       "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/168/308/original/screencapture-localhost-8000-2025-06-17-12_29_16.png?1750159747",
-    frame: "phone",
+    frame: "browser",
   },
   {
     title: "M-treat Health Organization Site",
@@ -49,7 +79,7 @@ export const projects: Project[] = [
     tech: "Django | React | REST API | Email Integration",
     image:
       "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/177/169/original/screencapture-linkedin-in-pascal20239-2026-01-05-18_04_36.png?1767626972",
-    frame: "phone",
+    frame: "browser",
   },
   {
     title: "Jay Foundation",
@@ -59,7 +89,7 @@ export const projects: Project[] = [
     tech: "Django | JavaScript | M-Pesa API | Bootstrap",
     image:
       "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/168/309/original/screencapture-localhost-8000-2025-06-17-12_25_42.png?1750159770",
-    frame: "phone",
+    frame: "browser",
   },
   {
     title: "Lumina interiors",
@@ -69,6 +99,6 @@ export const projects: Project[] = [
     tech: "Django | React | Bootstrap",
     image:
       "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/177/477/original/WhatsApp_Image_2026-01-17_at_2.12.57_PM.jpeg?1768684938",
-    frame: "phone",
+    frame: "browser",
   },
 ];
