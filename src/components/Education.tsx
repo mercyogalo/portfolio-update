@@ -63,7 +63,7 @@ const Education = () => {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-burgundy-800 dark:text-burgundy-600 mb-4">
             Education & Training
           </h2>
-          <div className="h-1 w-20 bg-burgundy-800 dark:bg-burgundy-600 mx-auto"></div>
+          <div className="h-1 w-20 bg-burgundy-800 dark:bg-burgundy-600 mx-auto" aria-hidden="true"></div>
         </div>
 
         <div>
@@ -73,7 +73,7 @@ const Education = () => {
                 key={index}
                 className="bg-accent dark:bg-black p-4 sm:p-6 rounded-lg transition-all hover:transform hover:-translate-y-1 hover:shadow-xl border border-slate-200 dark:border-slate-800"
               >
-                <h4 className="text-lg sm:text-xl font-bold text-primary dark:text-burgundy-600 mb-2">{training.title}</h4>
+                <h3 className="text-lg sm:text-xl font-bold text-primary dark:text-burgundy-600 mb-2">{training.title}</h3>
                 <p className="text-primary dark:text-white font-medium mb-1 text-sm sm:text-base">{training.organization}</p>
                 <p className="text-primary dark:text-white text-xs sm:text-sm mb-3 sm:mb-4">{training.period}</p>
                 <ul className="space-y-1 sm:space-y-2">

@@ -55,7 +55,7 @@ const Skills = () => {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-burgundy-800 dark:text-burgundy-600 mb-4">
             Skills & Expertise
           </h2>
-          <div className="h-1 w-20 bg-burgundy-800 dark:bg-burgundy-600 mx-auto"></div>
+          <div className="h-1 w-20 bg-burgundy-800 dark:bg-burgundy-600 mx-auto" aria-hidden="true"></div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { ThemeProvider } from "@/contexts/ThemeContext";
+import SkipLink from "@/components/SkipLink";
 import {
   CONTACT_EMAIL,
   PERSON_NAME,
@@ -146,6 +147,7 @@ export default function RootLayout({
       <body>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <JsonLd />
+        <SkipLink />
         <ThemeProvider>{children}</ThemeProvider>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-W5DVJ7HMBJ"

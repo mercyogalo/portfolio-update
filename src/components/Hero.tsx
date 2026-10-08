@@ -1,13 +1,6 @@
-"use client";
-
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight } from "lucide-react";
 
 const Hero = () => {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    element?.scrollIntoView({ behavior: 'smooth' })
-  }
-
   return (
     <section className="min-h-screen flex items-center bg-accent dark:bg-black relative pt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-10 md:py-12 w-full">
@@ -19,7 +12,7 @@ const Hero = () => {
 
             <div className="mb-6 sm:mb-8">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4">
-                <span className="text-slate-900 dark:text-white">I'm </span>
+                <span className="text-slate-900 dark:text-white">I&apos;m </span>
                 <span className="text-burgundy-800 dark:text-burgundy-600">
                   Mercy Adhiambo Ogalo
                 </span>
@@ -27,7 +20,10 @@ const Hero = () => {
                   , Full Stack Developer Based in Kenya.
                 </span>
               </h1>
-              <div className="h-1 w-24 sm:w-32 bg-burgundy-800 dark:bg-burgundy-600 mb-4 sm:mb-6"></div>
+              <div
+                className="h-1 w-24 sm:w-32 bg-burgundy-800 dark:bg-burgundy-600 mb-4 sm:mb-6"
+                aria-hidden="true"
+              />
             </div>
 
             <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 mb-8 sm:mb-12 leading-relaxed">
@@ -37,20 +33,20 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-wrap gap-3 sm:gap-4 mb-8 sm:mb-12">
-              <button
-                onClick={() => scrollToSection('projects')}
+              <a
+                href="#projects"
                 className="flex items-center gap-2 px-5 sm:px-7 py-2.5 sm:py-3 bg-burgundy-800 dark:bg-burgundy-600 text-white rounded-full hover:bg-burgundy-900 dark:hover:bg-burgundy-700 transition-colors text-sm sm:text-base"
               >
                 View My Portfolio
-                <ArrowRight size={16} className="text-accent" />
-              </button>
+                <ArrowRight size={16} className="text-accent" aria-hidden="true" />
+              </a>
 
-              <button
-                onClick={() => scrollToSection('contact')}
+              <a
+                href="#contact"
                 className="px-5 sm:px-7 py-2.5 sm:py-3 border-2 border-burgundy-800 dark:border-burgundy-600 text-burgundy-800 dark:text-burgundy-600 rounded-full hover:bg-burgundy-800 dark:hover:bg-burgundy-600 hover:text-white dark:hover:text-white transition-colors text-sm sm:text-base"
               >
                 Hire Me
-              </button>
+              </a>
             </div>
           </div>
 
@@ -58,7 +54,7 @@ const Hero = () => {
             <div className="w-full max-w-md aspect-square">
               <img
                 src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/176/855/original/WhatsApp_Image_2025-12-28_at_10.34.40_AM.jpeg?1766907331"
-                alt="Mercy Adhiambo Ogalo"
+                alt="Portrait of Mercy Adhiambo Ogalo, full-stack developer based in Nairobi, Kenya"
                 className="w-full h-full object-cover rounded-full
                   dark:shadow-[0_0_70px_rgba(220,38,38,0.45),0_0_140px_rgba(249,115,22,0.35)]"
               />
@@ -67,7 +63,7 @@ const Hero = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

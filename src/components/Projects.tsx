@@ -61,7 +61,7 @@ const Projects = () => {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-burgundy-800 dark:text-burgundy-600 mb-4">
             Projects
           </h2>
-          <div className="h-1 w-20 bg-burgundy-800 dark:bg-burgundy-600 mx-auto mb-4 sm:mb-6"></div>
+          <div className="h-1 w-20 bg-burgundy-800 dark:bg-burgundy-600 mx-auto mb-4 sm:mb-6" aria-hidden="true"></div>
         </div>
 
         <div className="space-y-12 sm:space-y-16">
@@ -81,7 +81,7 @@ const Projects = () => {
                         <div className="w-full h-full bg-white rounded-[1rem] sm:rounded-[1.5rem] overflow-hidden">
                           <img
                             src={project.image}
-                            alt={project.title}
+                            alt={`${project.title} project screenshot, ${project.category}`}
                             className="w-full h-full object-contain"
                           />
                         </div>
@@ -93,9 +93,9 @@ const Projects = () => {
                       <p className="text-xs sm:text-sm uppercase tracking-wide mb-2 font-medium">
                         {project.category}
                       </p>
-                      <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold">
+                      <p className="text-2xl sm:text-3xl lg:text-4xl font-bold">
                         {project.title}
-                      </h3>
+                      </p>
                     </div>
                   </div>
 

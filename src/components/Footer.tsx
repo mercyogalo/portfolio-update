@@ -4,13 +4,16 @@ import { Github, Linkedin, Mail, Phone } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
   const { theme } = useTheme();
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    element?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const footerLinks = [
+    { name: "About", href: "#about" },
+    { name: "Skills", href: "#skills" },
+    { name: "Experience", href: "#experience" },
+    { name: "Projects", href: "#projects" },
+    { name: "Education", href: "#education" },
+    { name: "Contact", href: "#contact" },
+  ];
 
   return (
     <footer className="bg-primary dark:bg-black text-white py-8 md:py-12 relative dark:shadow-[0_0_60px_rgba(128,0,32,0.4)]">
@@ -22,10 +25,10 @@ const Footer = () => {
                 ? "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/176/854/original/1.png?1766902274"
                 : "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/176/832/original/5.png?1766861085"
               }
-              alt="Logo"
+              alt="Ogalo Mercy Portfolio"
               className="h-12 sm:h-16 w-auto object-contain mb-3 md:mb-4 rounded-full"
             />
-            <h3 className="text-xl sm:text-2xl font-bold mb-3 md:mb-4 text-white">Mercy Adhiambo Ogalo</h3>
+            <p className="text-xl sm:text-2xl font-bold mb-3 md:mb-4 text-white">Mercy Adhiambo Ogalo</p>
             <p className="text-sm sm:text-base text-white/90 mb-4">
               Full Stack Developer passionate about creating impactful web solutions with modern technologies.
             </p>
@@ -34,61 +37,23 @@ const Footer = () => {
 
           
           <div className="mt-4 sm:mt-0">
-            <h4 className="text-lg sm:text-xl font-bold mb-3 md:mb-4 text-white">Quick Links</h4>
+            <p className="text-lg sm:text-xl font-bold mb-3 md:mb-4 text-white">Quick Links</p>
             <ul className="space-y-2">
-              <li>
-                <button
-                  onClick={() => scrollToSection('about')}
-                  className="text-sm sm:text-base text-white/90 dark:text-burgundy-600 hover:text-white dark:hover:text-burgundy-400 transition-colors w-full text-left"
-                >
-                  About
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection('skills')}
-                  className="text-sm sm:text-base text-white/90 dark:text-burgundy-600 hover:text-white dark:hover:text-burgundy-400 transition-colors w-full text-left"
-                >
-                  Skills
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection('experience')}
-                  className="text-sm sm:text-base text-white/90 dark:text-burgundy-600 hover:text-white dark:hover:text-burgundy-400 transition-colors w-full text-left"
-                >
-                  Experience
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection('projects')}
-                  className="text-sm sm:text-base text-white/90 dark:text-burgundy-600 hover:text-white dark:hover:text-burgundy-400 transition-colors w-full text-left"
-                >
-                  Projects
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection('education')}
-                  className="text-sm sm:text-base text-white/90 dark:text-burgundy-600 hover:text-white dark:hover:text-burgundy-400 transition-colors w-full text-left"
-                >
-                  Education
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection('contact')}
-                  className="text-sm sm:text-base text-white/90 dark:text-burgundy-600 hover:text-white dark:hover:text-burgundy-400 transition-colors w-full text-left"
-                >
-                  Contact
-                </button>
-              </li>
+              {footerLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="text-sm sm:text-base text-white/90 dark:text-burgundy-600 hover:text-white dark:hover:text-burgundy-400 transition-colors"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div className="mt-4 sm:mt-0 sm:col-span-2 md:col-span-1">
-            <h4 className="text-lg sm:text-xl font-bold mb-3 md:mb-4 text-white">Get In Touch</h4>
+            <p className="text-lg sm:text-xl font-bold mb-3 md:mb-4 text-white">Get In Touch</p>
             <ul className="space-y-2 mb-4">
               <li className="flex items-center gap-2 text-sm sm:text-base text-white/90">
                 <Mail size={18} className="flex-shrink-0" />
@@ -109,7 +74,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white/80 dark:text-burgundy-600 hover:text-white dark:hover:text-burgundy-400 transition-colors"
-                aria-label="GitHub"
+                aria-label="Mercy Ogalo on GitHub"
               >
                 <Github size={20} className="sm:w-6 sm:h-6" />
               </a>
@@ -118,7 +83,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white/80 dark:text-burgundy-600 hover:text-white dark:hover:text-burgundy-400 transition-colors"
-                aria-label="LinkedIn"
+                aria-label="Mercy Ogalo on LinkedIn"
               >
                 <Linkedin size={20} className="sm:w-6 sm:h-6" />
               </a>

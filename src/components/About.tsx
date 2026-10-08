@@ -11,7 +11,7 @@ const About = () => {
             <div className="relative w-full max-w-sm sm:max-w-md aspect-square">
               <img
                 src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/176/855/original/WhatsApp_Image_2025-12-28_at_10.34.40_AM.jpeg?1766907331"
-                alt="Mercy Adhiambo Ogalo"
+                alt="Mercy Adhiambo Ogalo standing for a professional portrait"
                 className="w-full h-full object-cover rounded-full
                   dark:shadow-[0_0_70px_rgba(220,38,38,0.45),0_0_140px_rgba(249,115,22,0.35)]"
               />
@@ -36,9 +36,9 @@ const About = () => {
               </p>
             </div>
 
-            <h3 className="text-lg sm:text-xl md:text-2xl mb-3 sm:mb-4">
+            <h2 className="text-lg sm:text-xl md:text-2xl mb-3 sm:mb-4">
               Who is <span className="text-primary">Mercy Ogalo</span>?
-            </h3>
+            </h2>
 
             <p className="text-sm sm:text-base text-slate-700 dark:text-slate-300 mb-4 sm:mb-6 leading-relaxed">
               I'm a passionate Full Stack Developer specializing in MERN stack development with extensive experience in Django, React, and modern web technologies.

@@ -18,13 +18,7 @@ const Navbar = () => {
     { name: 'Contact', href: '#contact' },
   ];
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsSidebarOpen(false);
-    }
-  };
+  const closeSidebar = () => setIsSidebarOpen(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,26 +54,28 @@ const Navbar = () => {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <img
+              <a href="#main-content" className="inline-flex">
+                <img
                 src={theme === 'dark' 
                   ? "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/176/854/original/1.png?1766902274"
                   : "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/176/832/original/5.png?1766861085"
                 }
-                alt="Logo"
+                alt="Ogalo Mercy Portfolio"
                 className="h-20 w-auto object-contain"
               />
+              </a>
             </div>
 
             {/* Desktop Navigation Links */}
             <div className="hidden lg:flex items-center space-x-1">
               {navLinks.map((link) => (
-                <button
+                <a
                   key={link.name}
-                  onClick={() => scrollToSection(link.href)}
+                  href={link.href}
                   className="px-4 py-2 text-primary dark:text-white hover:text-primary dark:hover:text-white font-medium transition-colors rounded-md hover:bg-slate-100 dark:hover:bg-slate-800"
                 >
                   {link.name}
-                </button>
+                </a>
               ))}
             </div>
 
@@ -154,16 +150,14 @@ const Navbar = () => {
           <nav className="flex-1 overflow-y-auto p-6">
             <div className="space-y-2">
               {navLinks.map((link) => (
-                <button
+                <a
                   key={link.name}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    scrollToSection(link.href);
-                  }}
-                  className="w-full text-left px-4 py-3 text-primary dark:text-white hover:text-primary dark:hover:text-white font-medium transition-colors rounded-md hover:bg-slate-100 dark:hover:bg-slate-800"
+                  href={link.href}
+                  onClick={closeSidebar}
+                  className="block w-full text-left px-4 py-3 text-primary dark:text-white hover:text-primary dark:hover:text-white font-medium transition-colors rounded-md hover:bg-slate-100 dark:hover:bg-slate-800"
                 >
                   {link.name}
-                </button>
+                </a>
               ))}
             </div>
           </nav>
