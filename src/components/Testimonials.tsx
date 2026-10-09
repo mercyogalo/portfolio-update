@@ -13,23 +13,15 @@ export default function Testimonials() {
       id="testimonials"
       aria-labelledby="testimonials-heading"
       className="px-4 py-20 sm:px-6 md:py-28"
-      role="region"
-      aria-roledescription="carousel"
-      aria-label="Testimonials"
     >
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-7xl">
         <SectionHeading id="testimonials-heading" align="center">
           What people say
         </SectionHeading>
-        <Stagger className="grid gap-6 md:grid-cols-3">
-          {items.map((item, index) => (
-            <StaggerItem key={item.id}>
-              <figure
-                role="group"
-                aria-roledescription="slide"
-                aria-label={`${index + 1} of ${items.length}`}
-                className="flex min-h-[260px] flex-col rounded-2xl border border-border bg-background p-6"
-              >
+        <Stagger className="-mx-3 flex flex-wrap">
+          {items.map((item) => (
+            <StaggerItem key={item.id} className="mb-6 w-full px-3 md:mb-0 md:w-6/12">
+              <figure className="flex h-full min-h-[280px] flex-col rounded-2xl border border-border bg-background p-6 sm:p-8 md:p-10">
                 <Quote className="mb-4 text-accent" size={28} aria-hidden="true" />
                 <blockquote className="flex-1 text-sm leading-relaxed text-foreground sm:text-base">
                   {item.quote}

@@ -10,7 +10,7 @@ const HeroGlobe = dynamic(() => import("@/components/hero/HeroGlobe"), {
 
 const roles = [
   "Full-Stack Developer",
-  "Backend Engineer",
+  "Junior Backend Developer",
   "MERN & Django Developer",
 ];
 
@@ -59,9 +59,7 @@ export default function Hero() {
             {roles[roleIndex]}
           </p>
           <p className="mt-4 max-w-xl text-base text-white/75 sm:text-lg">
-            I build and ship production web apps, REST APIs, payment integrations
-            and admin dashboards — with clients across Kenya, Zambia, the UK,
-            the Netherlands and Burkina Faso.
+          I'm a full-stack developer and problem solver who turns ideas into practical, production-ready applications. I bring adaptability, integrity, and a strong sense of ownership to every project, always looking for ways to learn, improve, and deliver meaningful results.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <a

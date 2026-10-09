@@ -72,7 +72,7 @@ export default function Contact() {
         </SectionHeading>
         <FadeUp>
           <p className="mx-auto mb-10 max-w-2xl text-center text-muted">
-            I&apos;m open to projects and full-time roles. Reach me directly — no form, no wait.
+            I&apos;m open to projects, contracts, part-time and full-time roles. Reach me directly here:
           </p>
         </FadeUp>
         <Stagger className="grid gap-4 sm:grid-cols-2">

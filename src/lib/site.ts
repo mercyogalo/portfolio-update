@@ -24,6 +24,7 @@ export const SOCIAL_LINKS = {
 };
 
 export const CONTACT_EMAIL = "ogalomercy8@gmail.com";
+export const CV_PDF_PATH = "/Mercy-Ogalo-CV.pdf";
 
 export function getSiteUrl(): string {
   const fromEnv = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");

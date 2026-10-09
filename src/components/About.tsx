@@ -3,11 +3,13 @@ import { join } from "node:path";
 import { ArrowRight } from "lucide-react";
 import AboutPhoto from "@/components/about/AboutPhoto";
 import { FadeUp, SectionHeading, Stagger, StaggerItem } from "@/components/motion";
+import { CV_PDF_PATH } from "@/lib/site";
 
 const chips = [
   "467 registrations handled (GSDA Summit)",
   "4 payment gateways integrated",
-  "MERN + Django",
+  "MERN",
+  "Django",
 ];
 
 export default function About() {
@@ -22,19 +24,15 @@ export default function About() {
           <SectionHeading id="about-heading">About me</SectionHeading>
           <FadeUp>
             <p className="text-base leading-relaxed text-muted sm:text-lg">
-              I&apos;m a full-stack developer in Nairobi. I build and ship production
-              web apps with MERN and Django — REST APIs, authentication and
-              role-based systems, payment integrations (Stripe, PayPal, Flutterwave,
-              M-Pesa Daraja), admin dashboards, and automated backend workflows
-              with Celery.
+          I&apos;m Mercy Adhiambo Ogalo, a full-stack developer , with 1+ years of experience building personal projects and client applications.
+          <br /> <br />
+          I believe being a good developer goes beyond writing code. I'm a solutions-oriented person who adapts to challenges, takes ownership, and looks for ways to make things work. I value honesty, integrity, and hard work, and I see every role as an opportunity to learn, grow, and make a meaningful contribution.
+          <br /> <br />
+          Whether I'm building software, collaborating with a team, or taking on responsibilities beyond my role, I strive to leave things better than I found them.
+
             </p>
           </FadeUp>
-          <FadeUp delay={0.08} className="mt-4">
-            <p className="text-base leading-relaxed text-muted sm:text-lg">
-              I co-instructed the MERN Stack course at Power Learn Project and I&apos;m
-              a final-year BIT student at JKUAT.
-            </p>
-          </FadeUp>
+          
           <Stagger className="mt-8 flex flex-wrap gap-2">
             {chips.map((chip) => (
               <StaggerItem key={chip}>
@@ -53,7 +51,7 @@ export default function About() {
               <ArrowRight size={16} aria-hidden="true" />
             </a>
             <a
-              href="/Mercy_Adhiambo_Ogalo_CV.pdf"
+              href={CV_PDF_PATH}
               download
               className="inline-flex items-center gap-2 rounded-full border border-foreground px-5 py-2.5 text-sm font-semibold hover:border-accent hover:text-accent"
             >

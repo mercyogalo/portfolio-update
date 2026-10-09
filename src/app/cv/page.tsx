@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, Download } from "lucide-react";
-import { PERSON_NAME } from "@/lib/site";
+import { CV_PDF_PATH, PERSON_NAME } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "CV",
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/cv" },
 };
 
-const CV_SRC = "/Mercy_Adhiambo_Ogalo_CV.pdf";
+const CV_SRC = CV_PDF_PATH;
 
 export default function CVPage() {
   return (

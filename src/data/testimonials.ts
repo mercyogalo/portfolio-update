@@ -15,8 +15,8 @@ export const testimonials: Testimonial[] = [
     id: "michelle-chivunga",
     quote:
       "Mercy's standout quality is her problem-solving ability. When she meets something she hasn't faced before, she researches, asks questions and puts in the extra effort to make it work. When our AI developer left with 72 hours to the Kingdom of Kush deadline, she found a replacement and kept the project moving. She has grown from a technical team member into someone who takes responsibility, leads others, and finds a way forward when there is a problem.",
-    name: "Michelle Chivunga",
-    role: "CEO",
+    name: "Onyedikaaa Onyeogali Diddie",
+    role: "Human Resources Lead",
     organization: "Global Policy House",
     relationship: "supervisor",
   },
