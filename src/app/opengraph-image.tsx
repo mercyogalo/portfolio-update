@@ -12,3 +12,4 @@ export const contentType = shareImageContentType;
 export default function OpenGraphImage() {
   return generateShareImage();
 }
+export const dynamic = "force-static";
