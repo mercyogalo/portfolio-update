@@ -11,8 +11,7 @@ const chips = [
 ];
 
 export default function About() {
-  // TODO: add /public/images/mercy.jpg
-  const hasPhoto = existsSync(join(process.cwd(), "public/images/mercy.jpg"));
+  const hasPhoto = existsSync(join(process.cwd(), "public/images/mercy.jpeg"));
 
   return (
     <section id="about" aria-labelledby="about-heading" className="px-4 py-20 sm:px-6 md:py-28">
@@ -46,17 +45,23 @@ export default function About() {
             ))}
           </Stagger>
           <div className="mt-8 flex flex-wrap gap-3">
-            {/* TODO: add CV PDF to /public as Mercy-Ogalo-CV.pdf */}
             <a
-              href="/Mercy-Ogalo-CV.pdf"
-              className="inline-flex items-center gap-2 rounded-full border border-foreground px-5 py-2.5 text-sm font-semibold hover:border-accent hover:text-accent"
+              href="/cv"
+              className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-black hover:bg-accent-hover"
             >
-              Download CV
+              View CV
               <ArrowRight size={16} aria-hidden="true" />
             </a>
             <a
+              href="/Mercy_Adhiambo_Ogalo_CV.pdf"
+              download
+              className="inline-flex items-center gap-2 rounded-full border border-foreground px-5 py-2.5 text-sm font-semibold hover:border-accent hover:text-accent"
+            >
+              Download CV
+            </a>
+            <a
               href="#contact"
-              className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-black hover:bg-accent-hover"
+              className="inline-flex items-center gap-2 rounded-full border border-foreground px-5 py-2.5 text-sm font-semibold hover:border-accent hover:text-accent"
             >
               Get in touch
             </a>

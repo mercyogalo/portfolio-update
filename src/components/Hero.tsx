@@ -3,9 +3,8 @@
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowDown } from "lucide-react";
 
-const HeroBackground = dynamic(() => import("@/components/hero/HeroBackground"), {
+const HeroGlobe = dynamic(() => import("@/components/hero/HeroGlobe"), {
   ssr: false,
 });
 
@@ -30,56 +29,55 @@ export default function Hero() {
   }, [reduce]);
 
   return (
-    <section className="relative flex min-h-svh items-center justify-center overflow-hidden px-4 pt-20">
-      <HeroBackground />
-      <div className="relative z-10 mx-auto max-w-4xl text-center">
-        <h1 className="font-display text-4xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl">
-          {words.map((word, index) => (
-            <motion.span
-              key={word}
-              className="mr-[0.3em] inline-block last:mr-0"
-              initial={reduce ? false : { opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.12, ease: "easeOut" }}
+    <section
+      id="home"
+      className="relative h-svh min-h-[640px] overflow-hidden bg-black text-white"
+    >
+      <div className="absolute inset-0 z-0">
+        <HeroGlobe />
+      </div>
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-32 bg-gradient-to-b from-transparent to-black"
+      />
+      <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-center px-4 pt-24 sm:px-6 lg:px-8">
+        <div className="max-w-2xl">
+          <h1 className="font-display text-4xl font-bold tracking-tight sm:text-6xl md:text-7xl">
+            {words.map((word, index) => (
+              <motion.span
+                key={word}
+                className="mr-[0.3em] inline-block last:mr-0"
+                initial={reduce ? false : { opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.12, ease: "easeOut" }}
+              >
+                {word}
+              </motion.span>
+            ))}
+          </h1>
+          <p className="mt-6 min-h-[2rem] text-lg text-accent sm:text-xl" aria-live="polite">
+            {roles[roleIndex]}
+          </p>
+          <p className="mt-4 max-w-xl text-base text-white/75 sm:text-lg">
+            I build and ship production web apps, REST APIs, payment integrations
+            and admin dashboards — with clients across Kenya, Zambia, the UK,
+            the Netherlands and Burkina Faso.
+          </p>
+          <div className="mt-10 flex flex-wrap items-center gap-4">
+            <a
+              href="#projects"
+              className="rounded-full bg-accent px-7 py-3 text-sm font-semibold text-black hover:bg-accent-hover"
             >
-              {word}
-            </motion.span>
-          ))}
-        </h1>
-        <p className="mt-6 min-h-[2rem] text-lg text-accent sm:text-xl" aria-live="polite">
-          {roles[roleIndex]}
-        </p>
-        <p className="mx-auto mt-4 max-w-2xl text-base text-muted sm:text-lg">
-          I build and ship production web apps, REST APIs, payment integrations
-          and admin dashboards.
-        </p>
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-          <a
-            href="#projects"
-            className="rounded-full bg-accent px-7 py-3 text-sm font-semibold text-black hover:bg-accent-hover"
-          >
-            View Projects
-          </a>
-          <a
-            href="#about"
-            className="rounded-full border border-foreground px-7 py-3 text-sm font-semibold hover:border-accent hover:text-accent"
-          >
-            About me
-          </a>
+              View Projects
+            </a>
+            <a
+              href="/cv"
+              className="rounded-full border border-white px-7 py-3 text-sm font-semibold text-white hover:border-accent hover:text-accent"
+            >
+              View CV
+            </a>
+          </div>
         </div>
-        <a
-          href="#about"
-          className="mt-16 inline-flex flex-col items-center gap-2 text-xs uppercase tracking-[0.2em] text-muted hover:text-accent"
-        >
-          Scroll
-          <motion.span
-            aria-hidden="true"
-            animate={reduce ? undefined : { y: [0, 8, 0] }}
-            transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <ArrowDown size={16} />
-          </motion.span>
-        </a>
       </div>
     </section>
   );

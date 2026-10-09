@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 export default function SectionHeading({
@@ -10,7 +11,7 @@ export default function SectionHeading({
 }: {
   id: string;
   eyebrow?: string;
-  children: string;
+  children: ReactNode;
   align?: "left" | "center";
 }) {
   const reduce = useReducedMotion();

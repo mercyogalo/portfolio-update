@@ -17,9 +17,11 @@ export default function Home() {
   return (
     <div className="min-h-svh bg-background text-foreground">
       <ScrollProgress />
-      <Navbar />
       <main id="main-content" tabIndex={-1} className="outline-none">
-        <Hero />
+        <div className="relative min-h-svh overflow-hidden bg-black text-white">
+          <Navbar />
+          <Hero />
+        </div>
         <About />
         <Companies />
         <Experience />

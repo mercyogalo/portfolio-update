@@ -64,7 +64,9 @@ export default function Navbar() {
       initial={{ y: -24, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.45, ease: "easeOut" }}
-      className="fixed inset-x-0 top-0 z-50"
+      className={`fixed inset-x-0 top-0 z-50 ${
+        scrolled ? "text-foreground" : "text-white"
+      }`}
     >
       <nav
         aria-label="Primary"
@@ -75,7 +77,7 @@ export default function Navbar() {
         }`}
       >
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:h-20 lg:px-8">
-          <a href="#main-content" className="font-display text-lg font-bold tracking-tight sm:text-xl">
+          <a href="#home" className="font-display text-lg font-bold tracking-tight sm:text-xl">
             Mercy<span className="text-accent">.</span>
           </a>
 
@@ -89,7 +91,13 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   className={`relative px-3 py-2 text-sm font-medium ${
-                    isActive ? "text-foreground" : "text-muted hover:text-foreground"
+                    isActive
+                      ? scrolled
+                        ? "text-foreground"
+                        : "text-white"
+                      : scrolled
+                        ? "text-muted hover:text-foreground"
+                        : "text-white/70 hover:text-white"
                   }`}
                 >
                   {label}

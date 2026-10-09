@@ -4,7 +4,7 @@ import { CONTACT_EMAIL, PERSON_NAME, SOCIAL_LINKS } from "@/lib/site";
 
 const Footer = () => {
   return (
-    <footer className="border-t border-border bg-background py-10 text-foreground md:py-12">
+    <footer className="bg-black py-10 text-white md:py-12">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="mb-8 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
           <div>
@@ -12,7 +12,7 @@ const Footer = () => {
               {PERSON_NAME}
               <span className="text-accent">.</span>
             </p>
-            <p className="mt-3 text-sm text-muted">
+            <p className="mt-3 text-sm text-white/70">
               Full-stack developer in Nairobi building production web apps, APIs
               and payment integrations.
             </p>
@@ -25,7 +25,7 @@ const Footer = () => {
                 .filter((link) => link.href !== "#testimonials" || process.env.NODE_ENV !== "production")
                 .map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} className="text-sm text-muted hover:text-accent">
+                  <a href={link.href} className="text-sm text-white/70 hover:text-accent">
                     {link.name}
                   </a>
                 </li>
@@ -35,7 +35,7 @@ const Footer = () => {
 
           <div>
             <p className="mb-3 font-display text-lg font-bold">Get in touch</p>
-            <ul className="mb-4 space-y-2 text-sm text-muted">
+            <ul className="mb-4 space-y-2 text-sm text-white/70">
               <li className="flex items-center gap-2">
                 <Mail size={16} aria-hidden="true" />
                 <a href={SOCIAL_LINKS.email} className="hover:text-accent">

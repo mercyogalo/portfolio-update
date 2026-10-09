@@ -15,8 +15,7 @@ export const projects: Project[] = [
     description:
       "Official website for Global Policy House. I built and maintain the Django backend on PostgreSQL, including event registration and booking with Stripe, PayPal and Flutterwave payments, and backend functionality powering an admin dashboard for managing registrations and website data. Automated email notifications are sent via Resend, with background task processing handled by Celery.",
     tech: "Django | PostgreSQL | Celery | Resend | Stripe | PayPal | Flutterwave",
-    image:
-      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/181/671/original/gph-website.png?1791476446",
+    image: "/images/projects/gph-website.jpg",
     frame: "browser",
   },
   {
@@ -25,8 +24,7 @@ export const projects: Project[] = [
     description:
       "Platform for passport and citizenship applications. I developed the Django and PostgreSQL backend covering application submission, data processing and administrative management, plus the backend behind an admin dashboard for managing application data and records. Also includes an event booking system with Stripe, PayPal and Flutterwave, with Celery handling asynchronous processes and Resend sending automated emails.",
     tech: "Django | PostgreSQL | Celery | Resend | Stripe | PayPal | Flutterwave",
-    image:
-      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/181/672/original/kingdom_of_kush_website.png?1791476482",
+    image: "/images/projects/kush-website.jpg",
     frame: "browser",
   },
   {
@@ -45,8 +43,7 @@ export const projects: Project[] = [
     description:
       "Qatalyst project is a web3 platform to help people manage staff and customers in their business. Is a platform for small business owners who have a problem with managing queues due to the number. I worked on the UI design and the frontend functionality ",
     tech: "Typescript | Tailwind CSS ",
-    image:
-      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/177/190/original/screencapture-localhost-8080-2026-01-05-17_50_50.png?1767684394",
+    image: "/images/projects/qatalyst.jpg",
     frame: "browser",
   },
   {
@@ -56,8 +53,7 @@ export const projects: Project[] = [
     description:
       "Comprehensive inventory management system for agriculture businesses. Features role-based authentication, dashboard analytics, and efficient tracking of stock and operations.",
     tech: "Django | Python | MySQL | Bootstrap | JavaScript",
-    image:
-      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/168/307/original/screencapture-localhost-8000-acc-home-2025-06-17-12_50_49.png?1750159724",
+    image: "/images/projects/agrigrow.jpg",
     frame: "browser",
   },
   {
@@ -67,8 +63,7 @@ export const projects: Project[] = [
     description:
       "Fully responsive restaurant website showcasing Kenyan cuisine. Features contact and reservation forms with Django backend integration and mobile-optimized design.",
     tech: "Django | HTML5 | CSS3 | JavaScript | Bootstrap",
-    image:
-      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/168/308/original/screencapture-localhost-8000-2025-06-17-12_29_16.png?1750159747",
+    image: "/images/projects/baobab.jpg",
     frame: "browser",
   },
   {
@@ -77,8 +72,7 @@ export const projects: Project[] = [
     description:
       "Dynamic health organization website with automated email system for contact forms and newsletter functionality with subscription management.",
     tech: "Django | React | REST API | Email Integration",
-    image:
-      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/177/169/original/screencapture-linkedin-in-pascal20239-2026-01-05-18_04_36.png?1767626972",
+    image: "/images/projects/mtreat.jpg",
     frame: "browser",
   },
   {
@@ -87,8 +81,7 @@ export const projects: Project[] = [
     description:
       "Charity organization website with M-Pesa payment integration for secure donations, automated email responses, and responsive design across all devices.",
     tech: "Django | JavaScript | M-Pesa API | Bootstrap",
-    image:
-      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/168/309/original/screencapture-localhost-8000-2025-06-17-12_25_42.png?1750159770",
+    image: "/images/projects/jay-foundation.jpg",
     frame: "browser",
   },
   {
@@ -97,8 +90,7 @@ export const projects: Project[] = [
     description:
       "Developed a modern web application for an interior design startup to showcase their portfolio and streamline client engagement through an intuitive booking interface. The Django and React-based platform features responsive design, dynamic content management, and optimized performance for displaying high-quality interior design imagery.",
     tech: "Django | React | Bootstrap",
-    image:
-      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/177/477/original/WhatsApp_Image_2026-01-17_at_2.12.57_PM.jpeg?1768684938",
+    image: "/images/projects/lumina.jpg",
     frame: "browser",
   },
 ];

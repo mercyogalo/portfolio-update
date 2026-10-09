@@ -15,7 +15,6 @@ export default function AboutPhoto({ hasPhoto }: { hasPhoto: boolean }) {
 
   return (
     <motion.div ref={photoRef} style={{ y }} className="relative mx-auto w-full max-w-md">
-      {/* TODO: add /public/images/mercy.jpg */}
       <div
         aria-hidden="true"
         className="absolute -bottom-3 -right-3 h-full w-full rounded-2xl bg-accent"
@@ -23,7 +22,7 @@ export default function AboutPhoto({ hasPhoto }: { hasPhoto: boolean }) {
       <div className="relative overflow-hidden rounded-2xl border border-border bg-neutral-200 dark:bg-neutral-900">
         {hasPhoto ? (
           <Image
-            src="/images/mercy.jpg"
+            src="/images/mercy.jpeg"
             alt="Portrait of Mercy Adhiambo Ogalo"
             width={720}
             height={900}
