@@ -1,3 +1,4 @@
+
 export type Testimonial = {
   id: string;
   quote: string;
@@ -9,40 +10,27 @@ export type Testimonial = {
   placeholder?: boolean;
 };
 
-// TODO: replace with real testimonials
 export const testimonials: Testimonial[] = [
   {
-    id: "placeholder-1",
-    quote: "Replace with a real testimonial.",
-    name: "Name",
-    role: "Learner, MERN Stack Course",
-    organization: "Power Learn Project",
-    relationship: "learner",
-    placeholder: true,
-  },
-  {
-    id: "placeholder-2",
-    quote: "Replace with a real testimonial.",
-    name: "Name",
-    role: "Colleague",
-    organization: "Organization",
-    relationship: "colleague",
-    placeholder: true,
-  },
-  {
-    id: "placeholder-3",
-    quote: "Replace with a real testimonial.",
-    name: "Name",
-    role: "Supervisor",
-    organization: "Organization",
+    id: "michelle-chivunga",
+    quote:
+      "Mercy's standout quality is her problem-solving ability. When she meets something she hasn't faced before, she researches, asks questions and puts in the extra effort to make it work. When our AI developer left with 72 hours to the Kingdom of Kush deadline, she found a replacement and kept the project moving. She has grown from a technical team member into someone who takes responsibility, leads others, and finds a way forward when there is a problem.",
+    name: "Michelle Chivunga",
+    role: "CEO",
+    organization: "Global Policy House",
     relationship: "supervisor",
-    placeholder: true,
   },
+  {
+    id: "susan-kamau",
+    quote:
+      "Mercy is someone you can absolutely rely on. She shows up when she says she will and delivers when promised, and that reliability never comes at the expense of quality. She approaches challenging situations with calm focus, transforms vague objectives into crystal-clear work plans, and executes with precision. I recommend her without hesitation.",
+    name: "Susan Kamau",
+    role: "Strategic Project Manager",
+    link: "https://www.linkedin.com/in/susan-kamau-ab9b7820b/",
+    relationship: "supervisor",
+  }
 ];
 
 export function getPublishedTestimonials() {
-  if (process.env.NODE_ENV === "production") {
-    return testimonials.filter((item) => !item.placeholder);
-  }
-  return testimonials;
+  return testimonials.filter((t) => !t.placeholder);
 }

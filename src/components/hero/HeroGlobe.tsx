@@ -1,12 +1,7 @@
 "use client";
 
-import dynamic from "next/dynamic";
+import { World } from "@/components/ui/globe";
 import ErrorBoundary from "@/components/ErrorBoundary";
-
-const World = dynamic(() => import("@/components/ui/globe").then((m) => m.World), {
-  ssr: false,
-  loading: () => <div className="h-full w-full bg-black" aria-hidden="true" />,
-});
 
 const ORANGE = "#FF6A00";
 const ORANGE_DEEP = "#E65F00";
@@ -62,28 +57,27 @@ const globeConfig = {
   globeColor: "#1a0c00",
   showAtmosphere: true,
   atmosphereColor: ORANGE,
-  atmosphereAltitude: 0.12,
-  emissive: "#3d1600",
-  emissiveIntensity: 0.25,
-  shininess: 0.9,
-  polygonColor: "rgba(255, 160, 80, 0.75)",
-  ambientLight: ORANGE,
+  atmosphereAltitude: 0.18,
+  emissive: "#FF6A00",
+  emissiveIntensity: 0.35,
+  shininess: 0.7,
+  polygonColor: "rgba(255, 140, 50, 0.95)",
+  ambientLight: "#FF8A3D",
   directionalLeftLight: "#ffffff",
   directionalTopLight: ORANGE_LIGHT,
   pointLight: "#ffffff",
-  arcTime: 1000,
+  arcTime: 1400,
   arcLength: 0.9,
   rings: 1,
   maxRings: 3,
-  initialPosition: { lat: 8, lng: 18 },
   autoRotate: true,
-  autoRotateSpeed: 0.5,
+  autoRotateSpeed: 0.6,
 };
 
 export default function HeroGlobe() {
   return (
     <div className="h-full w-full">
-      <ErrorBoundary fallback={<div className="h-full w-full bg-black" aria-hidden="true" />}>
+      <ErrorBoundary fallback={null}>
         <World data={clientArcs} globeConfig={globeConfig} />
       </ErrorBoundary>
     </div>

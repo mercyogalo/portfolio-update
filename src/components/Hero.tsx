@@ -33,7 +33,7 @@ export default function Hero() {
       id="home"
       className="relative h-svh min-h-[640px] overflow-hidden bg-black text-white"
     >
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 md:left-[28%]">
         <HeroGlobe />
       </div>
       <div
