@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Outfit } from "next/font/google";
 import Script from "next/script";
-import { ThemeProvider } from "@/contexts/ThemeContext";
+import Providers from "@/components/Providers";
 import SkipLink from "@/components/SkipLink";
 import {
   CONTACT_EMAIL,
@@ -17,6 +17,13 @@ import "./globals.css";
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
+  variable: "--font-sans",
+});
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-display",
 });
 
 const siteUrl = getSiteUrl();
@@ -91,8 +98,6 @@ export const viewport: Viewport = {
   ],
 };
 
-const themeInitScript = `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light'){document.documentElement.classList.add(t);}else if(window.matchMedia('(prefers-color-scheme: dark)').matches){document.documentElement.classList.add('dark');}else{document.documentElement.classList.add('light');}}catch(e){}})();`;
-
 function JsonLd() {
   const structuredData = {
     "@context": "https://schema.org",
@@ -149,12 +154,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.className} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${inter.variable} ${outfit.variable} ${inter.className}`}
+      suppressHydrationWarning
+    >
       <body>
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <JsonLd />
         <SkipLink />
-        <ThemeProvider>{children}</ThemeProvider>
+        <Providers>{children}</Providers>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-W5DVJ7HMBJ"
           strategy="afterInteractive"

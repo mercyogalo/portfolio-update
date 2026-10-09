@@ -1,77 +1,82 @@
-import Image from "next/image";
-import { ArrowRight } from "lucide-react";
-import { NEUTRAL_BLUR_DATA_URL, PORTRAIT_SRC } from "@/lib/images";
+"use client";
 
-const Hero = () => {
+import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+import { motion, useReducedMotion } from "framer-motion";
+
+const HeroGlobe = dynamic(() => import("@/components/hero/HeroGlobe"), {
+  ssr: false,
+});
+
+const roles = [
+  "Full-Stack Developer",
+  "Junior Backend Developer",
+  "MERN & Django Developer",
+];
+
+const words = ["Mercy", "Adhiambo", "Ogalo"];
+
+export default function Hero() {
+  const reduce = useReducedMotion();
+  const [roleIndex, setRoleIndex] = useState(0);
+
+  useEffect(() => {
+    if (reduce) return;
+    const id = window.setInterval(() => {
+      setRoleIndex((index) => (index + 1) % roles.length);
+    }, 2600);
+    return () => window.clearInterval(id);
+  }, [reduce]);
+
   return (
-    <section className="min-h-screen flex items-center bg-accent dark:bg-black relative pt-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-10 md:py-12 w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-center">
-          <div>
-            <div className="inline-block mb-6 px-4 py-2 bg-burgundy-800 dark:bg-burgundy-600 text-white rounded-full text-sm font-medium">
-              Hello there
-            </div>
-
-            <div className="mb-6 sm:mb-8">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4">
-                <span className="text-slate-900 dark:text-white">I&apos;m </span>
-                <span className="text-burgundy-800 dark:text-burgundy-600">
-                  Mercy Adhiambo Ogalo
-                </span>
-                <span className="text-slate-900 dark:text-white">
-                  , Full Stack Developer Based in Kenya.
-                </span>
-              </h1>
-              <div
-                className="h-1 w-24 sm:w-32 bg-burgundy-800 dark:bg-burgundy-600 mb-4 sm:mb-6"
-                aria-hidden="true"
-              />
-            </div>
-
-            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 mb-8 sm:mb-12 leading-relaxed">
-              Specializing in MERN stack development with a passion for creating
-              responsive, user-friendly web applications. Experienced in Django,
-              React, and modern web technologies.
-            </p>
-
-            <div className="flex flex-wrap gap-3 sm:gap-4 mb-8 sm:mb-12">
-              <a
-                href="#projects"
-                className="flex items-center gap-2 px-5 sm:px-7 py-2.5 sm:py-3 bg-burgundy-800 dark:bg-burgundy-600 text-white rounded-full hover:bg-burgundy-900 dark:hover:bg-burgundy-700 transition-colors text-sm sm:text-base"
+    <section
+      id="home"
+      className="relative h-svh min-h-[640px] overflow-hidden bg-black text-white"
+    >
+      <div className="absolute inset-0 z-0 md:left-[28%]">
+        <HeroGlobe />
+      </div>
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-32 bg-gradient-to-b from-transparent to-black"
+      />
+      <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-center px-4 pt-24 sm:px-6 lg:px-8">
+        <div className="max-w-2xl">
+          <h1 className="font-display text-4xl font-bold tracking-tight sm:text-6xl md:text-7xl">
+            {words.map((word, index) => (
+              <motion.span
+                key={word}
+                className="mr-[0.3em] inline-block last:mr-0"
+                initial={reduce ? false : { opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.12, ease: "easeOut" }}
               >
-                View My Portfolio
-                <ArrowRight size={16} className="text-accent" aria-hidden="true" />
-              </a>
-
-              <a
-                href="#contact"
-                className="px-5 sm:px-7 py-2.5 sm:py-3 border-2 border-burgundy-800 dark:border-burgundy-600 text-burgundy-800 dark:text-burgundy-600 rounded-full hover:bg-burgundy-800 dark:hover:bg-burgundy-600 hover:text-white dark:hover:text-white transition-colors text-sm sm:text-base"
-              >
-                Hire Me
-              </a>
-            </div>
-          </div>
-
-          <div className="flex justify-center md:justify-end">
-            <div className="relative w-full max-w-md aspect-square">
-              <Image
-                src={PORTRAIT_SRC}
-                alt="Portrait of Mercy Adhiambo Ogalo, full-stack developer based in Nairobi, Kenya"
-                fill
-                priority
-                sizes="(max-width: 768px) 90vw, 448px"
-                quality={75}
-                placeholder="blur"
-                blurDataURL={NEUTRAL_BLUR_DATA_URL}
-                className="object-cover rounded-full
-                  dark:shadow-[0_0_70px_rgba(220,38,38,0.45),0_0_140px_rgba(249,115,22,0.35)]"
-              />
-            </div>
+                {word}
+              </motion.span>
+            ))}
+          </h1>
+          <p className="mt-6 min-h-[2rem] text-lg text-accent sm:text-xl" aria-live="polite">
+            {roles[roleIndex]}
+          </p>
+          <p className="mt-4 max-w-xl text-base text-white/75 sm:text-lg">
+          I'm a full-stack developer and problem solver who turns ideas into practical, production-ready applications. I bring adaptability, integrity, and a strong sense of ownership to every project, always looking for ways to learn, improve, and deliver meaningful results.
+          </p>
+          <div className="mt-10 flex flex-wrap items-center gap-4">
+            <a
+              href="#projects"
+              className="rounded-full bg-accent px-7 py-3 text-sm font-semibold text-black hover:bg-accent-hover"
+            >
+              View Projects
+            </a>
+            <a
+              href="/cv"
+              className="rounded-full border border-white px-7 py-3 text-sm font-semibold text-white hover:border-accent hover:text-accent"
+            >
+              View CV
+            </a>
           </div>
         </div>
       </div>
     </section>
   );
-};
-
-export default Hero;
+}

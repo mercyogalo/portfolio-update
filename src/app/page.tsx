@@ -1,34 +1,36 @@
 import dynamic from "next/dynamic";
+import { ScrollProgress } from "@/components/motion";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Services from "@/components/Services";
 import About from "@/components/About";
-import Skills from "@/components/Skills";
+import Companies from "@/components/Companies";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
-import Education from "@/components/Education";
+import Skills from "@/components/Skills";
+import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
-const WhatsAppButton = dynamic(() => import("@/components/WhatsAppButton"));
 const HashFocus = dynamic(() => import("@/components/HashFocus"));
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white dark:bg-black">
-      <Navbar />
+    <div className="min-h-svh bg-background text-foreground">
+      <ScrollProgress />
       <main id="main-content" tabIndex={-1} className="outline-none">
-        <Hero />
-        <Services />
+        <div className="relative min-h-svh overflow-hidden bg-black text-white">
+          <Navbar />
+          <Hero />
+        </div>
         <About />
-        <Skills />
+        <Companies />
         <Experience />
         <Projects />
-        <Education />
+        <Skills />
+        <Testimonials />
         <Contact />
       </main>
       <Footer />
-      <WhatsAppButton />
       <HashFocus />
     </div>
   );

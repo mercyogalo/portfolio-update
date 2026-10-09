@@ -1,77 +1,71 @@
-import Image from "next/image";
-import { ArrowRight } from 'lucide-react'
-import { NEUTRAL_BLUR_DATA_URL, PORTRAIT_SRC } from "@/lib/images";
+import { existsSync } from "node:fs";
+import { join } from "node:path";
+import { ArrowRight } from "lucide-react";
+import AboutPhoto from "@/components/about/AboutPhoto";
+import { FadeUp, SectionHeading, Stagger, StaggerItem } from "@/components/motion";
+import { CV_PDF_PATH } from "@/lib/site";
 
-const About = () => {
-  const skills = ['React.js', 'Django', 'Express.js', 'TypeScript', 'Node.js', 'Mpesa integration']
+const chips = [
+  "467 registrations handled (GSDA Summit)",
+  "4 payment gateways integrated",
+  "MERN",
+  "Django",
+];
+
+export default function About() {
+  const hasPhoto = existsSync(join(process.cwd(), "public/images/mercy.jpeg"));
 
   return (
-    <section id="about" className="py-12 sm:py-16 md:py-20 bg-accent dark:bg-black">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center">
-          <div className="flex justify-center md:justify-start order-2 md:order-1">
-            <div className="relative w-full max-w-sm sm:max-w-md aspect-square">
-              <Image
-                src={PORTRAIT_SRC}
-                alt="Mercy Adhiambo Ogalo standing for a professional portrait"
-                fill
-                sizes="(max-width: 768px) 90vw, 448px"
-                quality={75}
-                placeholder="blur"
-                blurDataURL={NEUTRAL_BLUR_DATA_URL}
-                className="object-cover rounded-full
-                  dark:shadow-[0_0_70px_rgba(220,38,38,0.45),0_0_140px_rgba(249,115,22,0.35)]"
-              />
+    <section id="about" aria-labelledby="about-heading" className="px-4 py-20 sm:px-6 md:py-28">
+      <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2">
+        <AboutPhoto hasPhoto={hasPhoto} />
 
-              <div className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-wrap gap-1 sm:gap-2 justify-center max-w-[85%] sm:max-w-[80%]">
-                {skills.map((skill, index) => (
-                  <div
-                    key={index}
-                    className="bg-burgundy-800 dark:bg-burgundy-600 text-white px-2 sm:px-3 py-1 rounded-full text-xs font-medium whitespace-nowrap"
-                  >
-                    {skill}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+        <div>
+          <SectionHeading id="about-heading">About me</SectionHeading>
+          <FadeUp>
+            <p className="text-base leading-relaxed text-muted sm:text-lg">
+          I&apos;m Mercy Adhiambo Ogalo, a full-stack developer , with 1+ years of experience building personal projects and client applications.
+          <br /> <br />
+          I believe being a good developer goes beyond writing code. I'm a solutions-oriented person who adapts to challenges, takes ownership, and looks for ways to make things work. I value honesty, integrity, and hard work, and I see every role as an opportunity to learn, grow, and make a meaningful contribution.
+          <br /> <br />
+          Whether I'm building software, collaborating with a team, or taking on responsibilities beyond my role, I strive to leave things better than I found them.
 
-          <div className="order-1 md:order-2">
-            <div className="flex items-center gap-2 mb-3 sm:mb-4">
-              <p className="text-primary dark:text-white text-xs sm:text-sm uppercase tracking-wide font-bold dark:text-burgundy-600">
-                About Me
-              </p>
-            </div>
-
-            <h2 className="text-lg sm:text-xl md:text-2xl mb-3 sm:mb-4">
-              Who is <span className="text-primary">Mercy Ogalo</span>?
-            </h2>
-
-            <p className="text-sm sm:text-base text-slate-700 dark:text-slate-300 mb-4 sm:mb-6 leading-relaxed">
-              I&apos;m a passionate Full Stack Developer specializing in MERN stack development with extensive experience in Django, React, and modern web technologies.
             </p>
-
-            <p className="text-sm sm:text-base text-slate-700 dark:text-slate-300 mb-6 sm:mb-8 leading-relaxed">
-              Currently working as a Full Stack Developer and Co-Instructor at Power Learn Project, I thrive in collaborative environments and am dedicated to creating impactful digital solutions.
-            </p>
-
+          </FadeUp>
+          
+          <Stagger className="mt-8 flex flex-wrap gap-2">
+            {chips.map((chip) => (
+              <StaggerItem key={chip}>
+                <span className="inline-flex rounded-full bg-accent-tint px-3 py-1.5 text-xs font-medium text-accent">
+                  {chip}
+                </span>
+              </StaggerItem>
+            ))}
+          </Stagger>
+          <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href="/Mercy_Adhiambo_Ogalo_CV.pdf"
-              download
-              className="inline-flex items-center gap-1 bg-primary p-1 rounded-full hover:opacity-90 transition-opacity"
+              href="/cv"
+              className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-black hover:bg-accent-hover"
             >
-              <span className="bg-accent text-primary px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium text-xs sm:text-sm md:text-base">
-                Download CV
-              </span>
-              <span className="bg-accent p-2 sm:p-3 rounded-full flex items-center justify-center">
-                <ArrowRight size={12} className="text-primary sm:w-[18px] sm:h-[18px]" />
-              </span>
+              View CV
+              <ArrowRight size={16} aria-hidden="true" />
+            </a>
+            <a
+              href={CV_PDF_PATH}
+              download
+              className="inline-flex items-center gap-2 rounded-full border border-foreground px-5 py-2.5 text-sm font-semibold hover:border-accent hover:text-accent"
+            >
+              Download CV
+            </a>
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 rounded-full border border-foreground px-5 py-2.5 text-sm font-semibold hover:border-accent hover:text-accent"
+            >
+              Get in touch
             </a>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
-
-export default About

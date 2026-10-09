@@ -1,251 +1,126 @@
 "use client";
 
-import { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
-import { supabase } from '../lib/supabase';
+import { useState } from "react";
+import {
+  Check,
+  Copy,
+  Github,
+  Globe,
+  Linkedin,
+  Mail,
+  MapPin,
+  Phone,
+} from "lucide-react";
+import { FadeUp, SectionHeading, Stagger, StaggerItem } from "@/components/motion";
+import { CONTACT_EMAIL, SOCIAL_LINKS } from "@/lib/site";
 
-const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
+const items = [
+  {
+    label: "Email",
+    value: CONTACT_EMAIL,
+    href: `mailto:${CONTACT_EMAIL}`,
+    icon: Mail,
+  },
+  {
+    label: "Phone",
+    value: "+254 743 264 872",
+    href: "tel:+254743264872",
+    icon: Phone,
+  },
+  {
+    label: "Location",
+    value: "Nairobi, Kenya",
+    icon: MapPin,
+  },
+  {
+    label: "GitHub",
+    value: "github.com/mercyogalo",
+    href: SOCIAL_LINKS.github,
+    external: true,
+    icon: Github,
+  },
+  {
+    label: "LinkedIn",
+    value: "Mercy Ogalo",
+    href: SOCIAL_LINKS.linkedin,
+    external: true,
+    icon: Linkedin,
+  },
+  {
+    label: "Portfolio",
+    value: "mercyogalo.dev",
+    href: "https://mercyogalo.dev",
+    external: true,
+    icon: Globe,
+  },
+];
 
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
-  const [errorMessage, setErrorMessage] = useState('');
+export default function Contact() {
+  const [copied, setCopied] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus('submitting');
-    setErrorMessage('');
-
-    try {
-      const { error } = await supabase
-        .from('contacts')
-        .insert([
-          {
-            name: formData.name,
-            email: formData.email,
-            subject: formData.subject,
-            message: formData.message,
-          },
-        ]);
-
-      if (error) throw error;
-
-      setStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: '',
-      });
-
-      setTimeout(() => {
-        setStatus('idle');
-      }, 5000);
-    } catch (error) {
-      setStatus('error');
-      setErrorMessage('Failed to send message. Please try again or email me directly.');
-      console.error('Error submitting form:', error);
-    }
+  const copyEmail = async () => {
+    await navigator.clipboard.writeText(CONTACT_EMAIL);
+    setCopied(true);
+    window.setTimeout(() => setCopied(false), 1800);
   };
 
   return (
-    <section id="contact" className="py-12 sm:py-16 md:py-20 bg-white dark:bg-black">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-burgundy-800 dark:text-burgundy-600 mb-4">
-            Get In Touch
-          </h2>
-          <div className="h-1 w-20 bg-burgundy-800 dark:bg-burgundy-600 mx-auto mb-4 sm:mb-6" aria-hidden="true"></div>
-          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            Have a project in mind or just want to chat? Feel free to reach out!
+    <section id="contact" aria-labelledby="contact-heading" className="px-4 py-20 sm:px-6 md:py-28">
+      <div className="mx-auto max-w-4xl">
+        <SectionHeading id="contact-heading" align="center">
+          Let&apos;s work together
+        </SectionHeading>
+        <FadeUp>
+          <p className="mx-auto mb-10 max-w-2xl text-center text-muted">
+            I&apos;m open to projects, contracts, part-time and full-time roles. Reach me directly here:
           </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
-          <div>
-            <h3 className="text-xl sm:text-2xl font-bold text-burgundy-800 dark:text-white mb-4 sm:mb-6">Contact Information</h3>
-
-            <div className="space-y-4 sm:space-y-6 mb-6 sm:mb-8">
-              <div className="flex items-start gap-4">
-                <div className="bg-burgundy-800 dark:bg-white p-3 rounded-lg">
-                  <Mail className="text-white dark:text-black" size={24} />
-                </div>
+        </FadeUp>
+        <Stagger className="grid gap-4 sm:grid-cols-2">
+          {items.map((item) => {
+            const Icon = item.icon;
+            const body = (
+              <div className="flex items-start gap-3 rounded-2xl border border-border p-4 transition hover:border-accent">
+                <Icon className="mt-0.5 text-accent" size={20} aria-hidden="true" />
                 <div>
-                  <h4 className="font-bold text-burgundy-800 dark:text-white mb-1">Email</h4>
+                  <p className="text-xs uppercase tracking-[0.16em] text-muted">{item.label}</p>
+                  <p className="mt-1 font-medium underline-offset-4 group-hover:underline group-hover:decoration-accent">
+                    {item.value}
+                  </p>
+                </div>
+              </div>
+            );
+
+            return (
+              <StaggerItem key={item.label}>
+                {item.href ? (
                   <a
-                    href="mailto:ogalomercy8@gmail.com"
-                    className="text-slate-600 dark:text-slate-400 hover:text-black dark:hover:text-white transition-colors"
+                    href={item.href}
+                    className="group block"
+                    {...(item.external
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
+                    aria-label={`${item.label}: ${item.value}`}
                   >
-                    ogalomercy8@gmail.com
+                    {body}
                   </a>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="bg-burgundy-800 dark:bg-white p-3 rounded-lg">
-                  <Phone className="text-white dark:text-black" size={24} />
-                </div>
-                <div>
-                  <h4 className="font-bold text-burgundy-800 dark:text-white mb-1">Phone</h4>
-                  <a
-                    href="tel:+254743264872"
-                    className="text-slate-600 dark:text-slate-400 hover:text-black dark:hover:text-white transition-colors"
-                  >
-                    +254 743 264 872
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="bg-burgundy-800 dark:bg-white p-3 rounded-lg">
-                  <MapPin className="text-white dark:text-black" size={24} />
-                </div>
-                <div>
-                  <h4 className="font-bold text-burgundy-800 dark:text-white mb-1">Location</h4>
-                  <p className="text-slate-600 dark:text-slate-400">Kenya</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-slate-50 dark:bg-black p-4 sm:p-6 rounded-lg border-2 border-slate-200 dark:border-slate-800">
-              <h4 className="font-bold text-burgundy-800 dark:text-white mb-3 text-sm sm:text-base">Available For</h4>
-              <ul className="space-y-2 text-slate-700 dark:text-slate-300 text-sm sm:text-base">
-                <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-slate-700 dark:bg-white rounded-full"></span>
-                  Full-time opportunities
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-slate-700 dark:bg-white rounded-full"></span>
-                  Freelance projects
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-slate-700 dark:bg-white rounded-full"></span>
-                  Collaboration
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-slate-700 dark:bg-white rounded-full"></span>
-                  Consulting
-                </li>
-              </ul>
-            </div>
-            
-            
-          </div>
-
-          <div>
-            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-burgundy-800 dark:text-white font-medium mb-2 text-sm sm:text-base">
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-3 sm:px-4 py-2 sm:py-3 border-2 border-slate-200 dark:border-slate-800 rounded-lg focus:border-burgundy-800 dark:focus:border-white focus:outline-none transition-colors bg-white dark:bg-black text-black dark:text-white text-sm sm:text-base"
-                  placeholder="John Doe"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-burgundy-800 dark:text-white font-medium mb-2 text-sm sm:text-base">
-                  Your Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-3 sm:px-4 py-2 sm:py-3 border-2 border-slate-200 dark:border-slate-800 rounded-lg focus:border-burgundy-800 dark:focus:border-white focus:outline-none transition-colors bg-white dark:bg-black text-black dark:text-white text-sm sm:text-base"
-                  placeholder="john@example.com"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="subject" className="block text-burgundy-800 dark:text-white font-medium mb-2 text-sm sm:text-base">
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-3 sm:px-4 py-2 sm:py-3 border-2 border-slate-200 dark:border-slate-800 rounded-lg focus:border-burgundy-800 dark:focus:border-white focus:outline-none transition-colors bg-white dark:bg-black text-black dark:text-white text-sm sm:text-base"
-                  placeholder="Project Inquiry"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-burgundy-800 dark:text-white font-medium mb-2 text-sm sm:text-base">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={5}
-                  className="w-full px-3 sm:px-4 py-2 sm:py-3 border-2 border-slate-200 dark:border-slate-800 rounded-lg focus:border-burgundy-800 dark:focus:border-white focus:outline-none transition-colors resize-none bg-white dark:bg-black text-black dark:text-white text-sm sm:text-base"
-                  placeholder="Tell me about your project..."
-                ></textarea>
-              </div>
-
-              {status === 'success' && (
-                <div className="flex items-center gap-2 text-green-700 bg-green-50 p-4 rounded-lg border border-green-200">
-                  <CheckCircle size={20} />
-                  <span>Message sent successfully! I&apos;ll get back to you soon.</span>
-                </div>
-              )}
-
-              {status === 'error' && (
-                <div className="flex items-center gap-2 text-red-700 bg-red-50 p-4 rounded-lg border border-red-200">
-                  <AlertCircle size={20} />
-                  <span>{errorMessage}</span>
-                </div>
-              )}
-
-              <button
-                type="submit"
-                disabled={status === 'submitting'}
-                className="w-full flex items-center justify-center gap-2 px-4 sm:px-6 py-3 sm:py-4 bg-burgundy-800 dark:bg-white text-white dark:text-black rounded-lg hover:bg-burgundy-900 dark:hover:bg-slate-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-medium text-sm sm:text-base"
-              >
-                {status === 'submitting' ? (
-                  <>
-                    <div className="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent"></div>
-                    Sending...
-                  </>
                 ) : (
-                  <>
-                    <Send size={20} />
-                    Send Message
-                  </>
+                  body
                 )}
-              </button>
-            </form>
-          </div>
+              </StaggerItem>
+            );
+          })}
+        </Stagger>
+        <div className="mt-8 flex justify-center">
+          <button
+            type="button"
+            onClick={copyEmail}
+            className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-black hover:bg-accent-hover"
+          >
+            {copied ? <Check size={16} /> : <Copy size={16} />}
+            {copied ? "Copied!" : "Copy email"}
+          </button>
         </div>
       </div>
     </section>
   );
-};
-
-export default Contact;
+}
