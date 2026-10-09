@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  output: "export",
   allowedDevOrigins: ["127.0.0.1", "localhost", "172.29.138.51"],
   transpilePackages: [
     "three-globe",
@@ -8,8 +9,8 @@ const nextConfig: NextConfig = {
     "three-geojson-geometry",
   ],
   poweredByHeader: false,
-  compress: true,
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
