@@ -3,6 +3,7 @@ import { Inter, Outfit } from "next/font/google";
 import Script from "next/script";
 import Providers from "@/components/Providers";
 import SkipLink from "@/components/SkipLink";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import {
   CONTACT_EMAIL,
   PERSON_NAME,
@@ -162,7 +163,10 @@ export default function RootLayout({
       <body>
         <JsonLd />
         <SkipLink />
-        <Providers>{children}</Providers>
+        <Providers>
+          {children}
+          <FloatingWhatsApp />
+        </Providers>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-W5DVJ7HMBJ"
           strategy="afterInteractive"
