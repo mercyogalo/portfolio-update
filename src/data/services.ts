@@ -78,6 +78,5 @@ export const workSteps = [
 export const separateCosts = [
   "Domain name (for example, yourbusiness.co.ke)",
   "Hosting or platform subscriptions (such as Vercel, Shopify or WooCommerce hosting)",
-  "Third-party services, such as payment gateway accounts (M-Pesa Daraja, Stripe, PayPal) and email sending services",
   "Paid themes, plugins or stock assets, if your project needs them",
 ] as const;
