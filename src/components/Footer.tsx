@@ -24,7 +24,7 @@ const Footer = () => {
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <a href={link.href} className="text-sm text-white/70 hover:text-accent">
-                    {link.name}
+                    {"shortName" in link ? link.shortName : link.name}
                   </a>
                 </li>
               ))}

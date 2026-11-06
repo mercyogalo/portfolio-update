@@ -12,6 +12,18 @@
     --accent-hover: #e65f00;
     --accent-tint: rgba(255, 106, 0, 0.1);
     --radius: 0.75rem;
+    --p: 70.0925% 0.201198 44.7666;
+    --pc: 0% 0 0;
+    --n: 26.8618% 0 0;
+    --nc: 100% 0 0;
+    --b3: 92.1906% 0 0;
+    --bc: 14.4788% 0 0;
+    --fallback-p: #ff6a00;
+    --fallback-pc: #000000;
+    --fallback-n: #262626;
+    --fallback-nc: #ffffff;
+    --fallback-b3: #e5e5e5;
+    --fallback-bc: #0a0a0a;
   }
 
   .dark {
@@ -19,6 +31,18 @@
     --foreground: #ffffff;
     --muted: #a3a3a3;
     --border: #262626;
+    --p: 70.0925% 0.201198 44.7666;
+    --pc: 0% 0 0;
+    --n: 26.8618% 0 0;
+    --nc: 100% 0 0;
+    --b3: 26.8618% 0 0;
+    --bc: 100% 0 0;
+    --fallback-p: #ff6a00;
+    --fallback-pc: #000000;
+    --fallback-n: #262626;
+    --fallback-nc: #ffffff;
+    --fallback-b3: #262626;
+    --fallback-bc: #ffffff;
   }
 
   html {
@@ -41,6 +65,18 @@
   *:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 3px;
+  }
+}
+
+@layer components {
+  .steps.steps-vertical {
+    display: grid;
+    width: 100%;
+    overflow: visible;
+  }
+
+  .steps .step {
+    color: var(--foreground);
   }
 }
 
