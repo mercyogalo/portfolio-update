@@ -27,18 +27,12 @@ export default function Services() {
     <section id="services" aria-labelledby="services-heading" className="px-4 py-20 sm:px-6 md:py-28">
       <div className="mx-auto max-w-6xl">
         <SectionHeading id="services-heading" eyebrow="What I do" align="center">
-          Web developer in Nairobi, Kenya
+          Services I offer
         </SectionHeading>
         <FadeUp>
           <p className="mx-auto mb-4 max-w-3xl text-center text-base leading-relaxed text-muted sm:text-lg">
             Building websites, online stores and payment integrations for growing
             businesses.
-          </p>
-          <p className="mx-auto mb-12 max-w-3xl text-center text-base leading-relaxed text-muted sm:text-lg">
-            I&apos;m Mercy Ogalo, a full stack web developer and designer based in
-            Nairobi, Kenya. I help small and growing businesses build professional
-            websites, sell online, accept M-Pesa and card payments, and keep their
-            sites running smoothly.
           </p>
         </FadeUp>
 
